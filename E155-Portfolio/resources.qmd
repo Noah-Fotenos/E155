@@ -1,6 +1,0 @@
----
-title: "Resources"
----
-
-![](images/microps-logo.png){width=150}
-[Link to E155 Website](https://hmc-e155.github.io)
