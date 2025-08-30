@@ -1,0 +1,19 @@
+---
+title: "E155 Portfolio"
+image: images/Headshot.jpg
+about:
+    template: jolla
+    links:  
+        - icon: linkedin
+          text: LinkedIn
+          href: https://www.linkedin.com/in/noah-fotenos/
+        - icon: github
+          text: Github
+          href: https://github.com/Noah-Fotenos/E155
+
+---
+Noah Fotenos is a Junior at Harvey Mudd College majoring in Engineering.
+
+
+
+
