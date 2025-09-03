@@ -26,6 +26,7 @@ Figure 2 shows the physical layout of the design. The output LED was connected u
 
 # Testbench Simulation:
 ![Figure 3: A screenshot of a QuestaSim simulation demonstrating the input and output signals in waveform](images/testbench.jpg)
+
 ![Figure 4: A screenshot of a QuestaSim simulation demonstrating testvectors of all combinational inputs passed with 0 failures](images/results.jpg)
 
 Results show the design met all intended objectives while passing all tests in simulation. If a more precise output frequency was desired, a more sophisticated counter could be developed. The current design only allows for the clock to be divided by powers of two.
