@@ -21,6 +21,55 @@
     "text": "This semester my goal for E155 is deepen my knowledge in hardwear design. I have experience in digital design but feel like I havn’t been able to bring anything to the physical world. Additionally I am very excited for the final project and want to make something I can be really proad of."
   },
   {
+    "objectID": "labs/lab1/lab1.html",
+    "href": "labs/lab1/lab1.html",
+    "title": "Lab1",
+    "section": "",
+    "text": "In this lab, a development board was assembled to house a UPduino v3.1 FPGA and a Nucleo-L432KC microcontroller. To test the board a design to control a 7 segment display and 3 onboard LEDs was implemented. The 7-segment display and 2 of the onboard LEDs were controlled with combinational logic from a 4 switch input and the third LED was to demonstrate the functionality of the on-board high-speed oscillator by blinking one of the on-board LEDs. The high speed oscillator was configured at a frequency of 48 MHz and divided down using a counter to achieve a blinking frequency of ~2.4 Hz."
+  },
+  {
+    "objectID": "labs/lab1/lab1.html#introduction",
+    "href": "labs/lab1/lab1.html#introduction",
+    "title": "Lab1",
+    "section": "",
+    "text": "In this lab, a development board was assembled to house a UPduino v3.1 FPGA and a Nucleo-L432KC microcontroller. To test the board a design to control a 7 segment display and 3 onboard LEDs was implemented. The 7-segment display and 2 of the onboard LEDs were controlled with combinational logic from a 4 switch input and the third LED was to demonstrate the functionality of the on-board high-speed oscillator by blinking one of the on-board LEDs. The high speed oscillator was configured at a frequency of 48 MHz and divided down using a counter to achieve a blinking frequency of ~2.4 Hz."
+  },
+  {
+    "objectID": "labs/lab1/lab1.html#design-and-testing-methodology",
+    "href": "labs/lab1/lab1.html#design-and-testing-methodology",
+    "title": "Lab1",
+    "section": "Design and Testing Methodology:",
+    "text": "Design and Testing Methodology:\nFor the hard wear the board was soldered in accordance to the E155 lab1 instructions. The resistor values for the 7-Segment display were derived from the Datasheet. Providing a 5v power supply from the board and a 2.1V drop across the diode with an If of 20mA using V=IR a resistor of 220ohms was used. For Digital methodology the on-board high-speed oscillator (HSOSC) from the iCE40 UltraPlus primitive library was used to generate a clock signal at 48 MHz. Then, a counter was used to divide the high frequency clock signal down so that the blinking frequency could be easily visualized using one of the on-board LEDs. The combinational logic for LED’s and 7-segment display were taking from the E155 specifications and truth table.\nTo test the design a Testbench was made to read a text file of test vectors describing all possible inputs and expected outputs. In simulation the Testbench reads the test file and compares to the DUT which is the top module implementing the above design. To confirm the oscillation an oscilloscope was used to show the frequency at which the LED is blinking."
+  },
+  {
+    "objectID": "labs/lab1/lab1.html#technical-documentation",
+    "href": "labs/lab1/lab1.html#technical-documentation",
+    "title": "Lab1",
+    "section": "Technical Documentation:",
+    "text": "Technical Documentation:"
+  },
+  {
+    "objectID": "labs/lab1/lab1.html#results-and-discussion",
+    "href": "labs/lab1/lab1.html#results-and-discussion",
+    "title": "Lab1",
+    "section": "Results and Discussion:",
+    "text": "Results and Discussion:"
+  },
+  {
+    "objectID": "labs/lab1/lab1.html#conclusion",
+    "href": "labs/lab1/lab1.html#conclusion",
+    "title": "Lab1",
+    "section": "Conclusion",
+    "text": "Conclusion\nThe design successfully blinked an external LED using the on-board high-speed oscillator as well as displayed all Hexidecimal representation of a 4-bit input from onboard switches along with 2 gate controlled onboard LEDs. This lab took around 8 hours."
+  },
+  {
+    "objectID": "labs/lab1/lab1.html#ai-prototype-summary",
+    "href": "labs/lab1/lab1.html#ai-prototype-summary",
+    "title": "Lab1",
+    "section": "AI Prototype Summary",
+    "text": "AI Prototype Summary\nChatGPT was very fast to generate the entire Verilog module with “Internal HFOSC instantiation” and “Blink counter” code blocks. However the code failed do to miss instantiating the HFOSC writing “SB_HFOSC”. I was impressed that it went beyond the prompt and warned about if the led is pull down or not: “If your LED is active-low, just change the toggle line to led &lt;= ~led; starting from led = 1’b1;” I thought this was surprising since it went into implementation. It also asked if I wanted to generate a testbench to run in simulation. I was impressed less by the code it generated but how usefull it would be as a partner for a larger scale project to provide help and extra information."
+  },
+  {
     "objectID": "labs.html#lab-2-multiplexed-7-segment-display",
     "href": "labs.html#lab-2-multiplexed-7-segment-display",
     "title": "Labs",

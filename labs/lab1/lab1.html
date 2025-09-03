@@ -68,6 +68,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../../styles.css">
 </head>
@@ -116,8 +145,26 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction:</a></li>
+  <li><a href="#design-and-testing-methodology" id="toc-design-and-testing-methodology" class="nav-link" data-scroll-target="#design-and-testing-methodology">Design and Testing Methodology:</a></li>
+  <li><a href="#technical-documentation" id="toc-technical-documentation" class="nav-link" data-scroll-target="#technical-documentation">Technical Documentation:</a></li>
+  <li><a href="#code" id="toc-code" class="nav-link" data-scroll-target="#code">Code</a></li>
+  <li><a href="#schematic" id="toc-schematic" class="nav-link" data-scroll-target="#schematic">Schematic</a>
+  <ul class="collapse">
+  <li><a href="#results-and-discussion" id="toc-results-and-discussion" class="nav-link" data-scroll-target="#results-and-discussion">Results and Discussion:</a></li>
+  </ul></li>
+  <li><a href="#testbench-simulation" id="toc-testbench-simulation" class="nav-link" data-scroll-target="#testbench-simulation">Testbench Simulation:</a>
+  <ul class="collapse">
+  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a></li>
+  <li><a href="#ai-prototype-summary" id="toc-ai-prototype-summary" class="nav-link" data-scroll-target="#ai-prototype-summary">AI Prototype Summary</a></li>
+  </ul></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -141,8 +188,51 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<section id="introduction" class="level2">
+<h2 class="anchored" data-anchor-id="introduction">Introduction:</h2>
+<p>In this lab, a development board was assembled to house a UPduino v3.1 FPGA and a Nucleo-L432KC microcontroller. To test the board a design to control a 7 segment display and 3 onboard LEDs was implemented. The 7-segment display and 2 of the onboard LEDs were controlled with combinational logic from a 4 switch input and the third LED was to demonstrate the functionality of the on-board high-speed oscillator by blinking one of the on-board LEDs. The high speed oscillator was configured at a frequency of 48 MHz and divided down using a counter to achieve a blinking frequency of ~2.4 Hz.</p>
+</section>
+<section id="design-and-testing-methodology" class="level2">
+<h2 class="anchored" data-anchor-id="design-and-testing-methodology">Design and Testing Methodology:</h2>
+<p>For the hard wear the board was soldered in accordance to the <a href="https://hmc-e155.github.io/lab/lab1/#testing-the-boards">E155 lab1 instructions</a>. The resistor values for the 7-Segment display were derived from the <a href="https://hmc-e155.github.io/assets/doc/MAN64x0%20Series.pdf">Datasheet</a>. Providing a 5v power supply from the board and a 2.1V drop across the diode with an If of 20mA using V=IR a resistor of 220ohms was used. For Digital methodology the on-board high-speed oscillator (HSOSC) from the iCE40 UltraPlus primitive library was used to generate a clock signal at 48 MHz. Then, a counter was used to divide the high frequency clock signal down so that the blinking frequency could be easily visualized using one of the on-board LEDs. The combinational logic for LED’s and 7-segment display were taking from the E155 specifications and truth table.</p>
+<p>To test the design a Testbench was made to read a text file of test vectors describing all possible inputs and expected outputs. In simulation the Testbench reads the test file and compares to the DUT which is the top module implementing the above design. To confirm the oscillation an oscilloscope was used to show the frequency at which the LED is blinking.</p>
+</section>
+<section id="technical-documentation" class="level2">
+<h2 class="anchored" data-anchor-id="technical-documentation">Technical Documentation:</h2>
+</section>
+<section id="code" class="level1">
+<h1>Code</h1>
+<p>The source code can be found in the associated <a href="https://github.com/Noah-Fotenos/E155/lab1">Github repository</a>. # Block Diagram: <img src="E155-Portfolio/labs/lab1/images/Lab1_block.jpeg" class="img-fluid" alt="Figure 1: Block Diagram of Verilog design"></p>
+<p>The block diagram in Figure 1 demonstrates the overall architecture of the design. The top-level module Lab1_nf includes 3 submodules: the high-speed oscillator block (HSOSC), the clock divider module (counter), and combinational logic block to decode the input signal into hex display encoding for the 7-segment display(nf_seven_seg_disp).</p>
+</section>
+<section id="schematic" class="level1">
+<h1>Schematic</h1>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="E155-Portfolio/labs/lab1/images/Lab1_schematic.jpeg" class="img-fluid figure-img"></p>
+<figcaption>Figure 2: Schematic of the physical circuit.</figcaption>
+</figure>
+</div>
+<p>Figure 2 shows the physical layout of the design. The output LED was connected using a 1 k <span class="math inline">\(\Omega\)</span> current-limiting resistor to ensure the output current (~2.6 mA) did not exceed the maximum output current of the FPGA I/O pins. The 5v Vcc pin is directly connected to the 7-segment display common anode pin3, with all I/O pins output low to activate the LED segment with 220 <span class="math inline">\(\Omega\)</span> to have the 20mA current for typical brightness.</p>
+<section id="results-and-discussion" class="level2">
+<h2 class="anchored" data-anchor-id="results-and-discussion">Results and Discussion:</h2>
+</section>
+</section>
+<section id="testbench-simulation" class="level1">
+<h1>Testbench Simulation:</h1>
+<p><img src="E155-Portfolio/labs/lab1/images/testbench.jpg" class="img-fluid" alt="Figure 3: A screenshot of a QuestaSim simulation demonstrating the input and output signals in waveform"> <img src="E155-Portfolio/labs/lab1/images/results.jpg" class="img-fluid" alt="Figure 4: A screenshot of a QuestaSim simulation demonstrating testvectors of all combinational inputs passed with 0 failures"></p>
+<p>Results show the design met all intended objectives while passing all tests in simulation. If a more precise output frequency was desired, a more sophisticated counter could be developed. The current design only allows for the clock to be divided by powers of two.</p>
+<section id="conclusion" class="level2">
+<h2 class="anchored" data-anchor-id="conclusion">Conclusion</h2>
+<p>The design successfully blinked an external LED using the on-board high-speed oscillator as well as displayed all Hexidecimal representation of a 4-bit input from onboard switches along with 2 gate controlled onboard LEDs. This lab took around 8 hours.</p>
+</section>
+<section id="ai-prototype-summary" class="level2">
+<h2 class="anchored" data-anchor-id="ai-prototype-summary">AI Prototype Summary</h2>
+<p>ChatGPT was very fast to generate the entire Verilog module with “Internal HFOSC instantiation” and “Blink counter” code blocks. However the code failed do to miss instantiating the HFOSC writing “SB_HFOSC”. I was impressed that it went beyond the prompt and warned about if the led is pull down or not: “If your LED is active-low, just change the toggle line to led &lt;= ~led; starting from led = 1’b1;” I thought this was surprising since it went into implementation. It also asked if I wanted to generate a testbench to run in simulation. I was impressed less by the code it generated but how usefull it would be as a partner for a larger scale project to provide help and extra information.</p>
 
 
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
