@@ -12,7 +12,9 @@ To test the design a Testbench was made to read a text file of test vectors desc
 ## Technical Documentation:
 # Code
 The source code can be found in the associated [Github repository](https://github.com/Noah-Fotenos/E155/lab1).
+
 # Block Diagram:
+
 ![Figure 1: Block Diagram of Verilog design](images/Lab1_block.jpeg)
 
 The block diagram in Figure 1 demonstrates the overall architecture of the design. The top-level module Lab1_nf includes 3 submodules: the high-speed oscillator block (HSOSC), the clock divider module (counter), and combinational logic block to decode the input signal into hex display encoding for the 7-segment display(nf_seven_seg_disp).
@@ -25,6 +27,7 @@ Figure 2 shows the physical layout of the design. The output LED was connected u
 ## Results and Discussion:
 
 # Testbench Simulation:
+
 ![Figure 3: A screenshot of a QuestaSim simulation demonstrating the input and output signals in waveform](images/testbench.jpg)
 
 ![Figure 4: A screenshot of a QuestaSim simulation demonstrating testvectors of all combinational inputs passed with 0 failures](images/results.jpg)
