@@ -154,6 +154,7 @@ window.Quarto = {
   <li><a href="#design-and-testing-methodology" id="toc-design-and-testing-methodology" class="nav-link" data-scroll-target="#design-and-testing-methodology">Design and Testing Methodology:</a></li>
   <li><a href="#technical-documentation" id="toc-technical-documentation" class="nav-link" data-scroll-target="#technical-documentation">Technical Documentation:</a></li>
   <li><a href="#code" id="toc-code" class="nav-link" data-scroll-target="#code">Code</a></li>
+  <li><a href="#block-diagram" id="toc-block-diagram" class="nav-link" data-scroll-target="#block-diagram">Block Diagram:</a></li>
   <li><a href="#schematic" id="toc-schematic" class="nav-link" data-scroll-target="#schematic">Schematic</a>
   <ul class="collapse">
   <li><a href="#results-and-discussion" id="toc-results-and-discussion" class="nav-link" data-scroll-target="#results-and-discussion">Results and Discussion:</a></li>
@@ -202,7 +203,16 @@ window.Quarto = {
 </section>
 <section id="code" class="level1">
 <h1>Code</h1>
-<p>The source code can be found in the associated <a href="https://github.com/Noah-Fotenos/E155/lab1">Github repository</a>. # Block Diagram: <img src="images/Lab1_block.jpeg" class="img-fluid" alt="Figure 1: Block Diagram of Verilog design"></p>
+<p>The source code can be found in the associated <a href="https://github.com/Noah-Fotenos/E155/lab1">Github repository</a>.</p>
+</section>
+<section id="block-diagram" class="level1">
+<h1>Block Diagram:</h1>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Lab1_block.jpeg" class="img-fluid figure-img"></p>
+<figcaption>Figure 1: Block Diagram of Verilog design</figcaption>
+</figure>
+</div>
 <p>The block diagram in Figure 1 demonstrates the overall architecture of the design. The top-level module Lab1_nf includes 3 submodules: the high-speed oscillator block (HSOSC), the clock divider module (counter), and combinational logic block to decode the input signal into hex display encoding for the 7-segment display(nf_seven_seg_disp).</p>
 </section>
 <section id="schematic" class="level1">
@@ -220,7 +230,18 @@ window.Quarto = {
 </section>
 <section id="testbench-simulation" class="level1">
 <h1>Testbench Simulation:</h1>
-<p><img src="images/testbench.jpg" class="img-fluid" alt="Figure 3: A screenshot of a QuestaSim simulation demonstrating the input and output signals in waveform"> <img src="images/results.jpg" class="img-fluid" alt="Figure 4: A screenshot of a QuestaSim simulation demonstrating testvectors of all combinational inputs passed with 0 failures"></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/testbench.jpg" class="img-fluid figure-img"></p>
+<figcaption>Figure 3: A screenshot of a QuestaSim simulation demonstrating the input and output signals in waveform</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/results.jpg" class="img-fluid figure-img"></p>
+<figcaption>Figure 4: A screenshot of a QuestaSim simulation demonstrating testvectors of all combinational inputs passed with 0 failures</figcaption>
+</figure>
+</div>
 <p>Results show the design met all intended objectives while passing all tests in simulation. If a more precise output frequency was desired, a more sophisticated counter could be developed. The current design only allows for the clock to be divided by powers of two.</p>
 <section id="conclusion" class="level2">
 <h2 class="anchored" data-anchor-id="conclusion">Conclusion</h2>
