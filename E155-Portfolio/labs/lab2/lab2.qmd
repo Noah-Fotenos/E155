@@ -32,7 +32,7 @@ Figure 2 shows the physical layout of the design. The output LED was connected u
 
 # Testbench Simulation:
 
-![Figure 3: A screenshot of a QuestaSim simulation demonstrating the input and output signals in waveform of top level testbench](images/waveform1.png)
+![Figure 3: A screenshot of a QuestaSim simulation demonstrating the input and output signals in waveform of top level testbench](images/waveforms1.png)
 
 ![Figure 4: A screenshot of a QuestaSim simulation demonstrating assertions inputs passed with 0 failures](images/testbench1.png)
 
