@@ -48,6 +48,5 @@ The design successfully displayed both 7-segment LED's and sum LEDs without blee
 
 ## AI Prototype Summary
 
-ChatGPT was very fast to generate the entire Verilog module with "Internal HFOSC instantiation" and "Blink counter" code blocks. However the code failed do to miss instantiating the HFOSC writing "SB_HFOSC". I was impressed that it went beyond the prompt and warned about if the led is pull down or not: "If your LED is active-low, just change the toggle line to led <= ~led; starting from led = 1'b1;" I thought this was surprising since it went into implementation. It also asked if I wanted to generate a testbench to run in simulation. I was impressed less by the code it generated but how usefull it would be as a partner for a larger scale project to provide help and extra information. 
-
+ChatGPT was able to generate a large file but had difficulty calling the other modules correctly. To me the code it generated was much more complicated than it needed to be using syntax I am unfamiliar with. The code is logically sound after inspection but did not synthesize first try. I think if I were to work with this code for a bit I could get it working much faster than it took me. 
 
