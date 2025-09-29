@@ -1,3 +1,60 @@
 ---
 title: "Lab3"
 ---
+---
+title: "Lab3"
+---
+
+## Introduction:
+In this lab, UPduino v3.1 FPGA is programmed to display 2 7-segment displays controlled by a 4x4 matrix keypad. On a key press the right LED displays the input and a new press, updates and pushes the past number to the right display.  Due to the power draw of the 7-segment displays the FPGA can only power one at a time therefor time multiplexing at 80Hz to alternate the anodes of the dual 7-segment displays using PNP transistors. 
+
+## Design and Testing Methodology:
+Building off [lab2](labs/lab2/lab2.qmd) 7-Segment display circuit, The off board LED's are replaced with the 4x4 matrix keypad with rows and outputs to and columns as inputs.  Since the keyboard matrix works as switches connecting rows and columns to decode an input only one row can be powered at a time. Cycling through the rows waiting for a column input can be decoded for the specific key pressed. Once an input is detected a FSM as seen below is used to store the input, wait a period of about 100 ms to avoid D-bounce errors, wait for a release of the specific key ,and wait again for the release D-bounce. 
+
+![Figure 1: FSM design](images/fsm.jpeg)
+
+For Digital methodology the on-board high-speed oscillator (HSOSC) from the iCE40 UltraPlus primitive library was used to generate a clock signal at 48 MHz. Then, a counter was used to divide the high frequency clock signal down to 160Hz to still be smooth to the eye without the display bleeding together while switching the row power fast enough to capture all inputs. 
+
+To test the design a Testbench for the 7-segment displays was already developed and tested in [lab2](labs/lab2/lab2.qmd). 
+
+First checking initial conditions after reset with the adder and segment displays. then while only one anode is on checking a combination of inputs to confirm the LED adder and the 7-segment display output. Testbenches were made to check each submodule to very individual logic. 
+
+## Technical Documentation:
+# Code
+The source code can be found in the associated [Github repository](https://github.com/Noah-Fotenos/E155/lab3).
+
+# Block Diagram:
+
+![Figure 2: Block Diagram of Verilog design](images/block.jpeg)
+
+The block diagram in Figure 1 demonstrates the overall architecture of the design. The top-level module Lab3_nf includes 7 submodules: the high-speed oscillator block (HSOSC), the clock divider module (counter), and combinational logic block to decode the input signal into hex display encoding for the 7-segment display(nf_seven_seg_disp), lab3_buttonpress to decode the inputs, lab3_FSM, to deal with debouncing and release, lab3_holdstate, to do the led pushing, and lab3_rowswitch to cycle power to the rows.
+
+# Schematic
+![Figure 3: Schematic of the physical circuit.](images/schematic.jpeg)
+
+Figure 2 shows the physical layout of the design.. The oscillating I/O pins activate the 2 PNP transisters to give enough current to the 2 anodes of the LED. The display is controlled by the 7 output pins which go to both displayes cathodes. There is also the on board reset to restart the counter if needed. The 4x4 matrix has pulldown resisters for the inputs to ensure they go low when intended.
+
+
+## Results and Discussion:
+
+# Testbench Simulation:
+
+![Figure 4: A screenshot of a QuestaSim simulation demonstrating the input and output signals in waveform of FSM  testbench](images/fsmwaves.png)
+
+![Figure 5: A screenshot of a QuestaSim simulation demonstrating assertions inputs passed with 0 failures](images/fsmsuccess.png)
+
+![Figure 6: A screenshot of a QuestaSim simulation demonstrating the input and output signals in waveform of rowswitch testbench](images/rowswitchwaves.png)
+
+![Figure 7: A screenshot of a QuestaSim simulation demonstrating assertions inputs passed with 0 failures](images/rowswitchsuccess.png)
+
+Results show the design met all intended objectives while passing all tests in simulation.
+
+## Conclusion
+
+The design successfully displayed both 7-segment LED's without bleeding or visible oscillation or key-press glitches. This lab took around 15 hours.
+
+## AI Prototype Summary
+
+ChatGPT was able to generate a large file for the Monolithic design that did pass synthesis. I was super impressed by this because usually ai cant do large scale code. It did take longer than the past times but not by much at all. The code itself seems to use similiar high level logic to mine but the actual syntax is very different. 
+
+The modular prompts failed synthesis with many errors like unknown modules. So using the modular pompting I think the AI mixed its responses poorly. If I think both versions would require careful usage to work properly. 
