@@ -21,6 +21,55 @@
     "text": "This semester my goal for E155 is deepen my knowledge in hardwear design. I have experience in digital design but feel like I havn’t been able to bring anything to the physical world. Additionally I am very excited for the final project and want to make something I can be really proad of."
   },
   {
+    "objectID": "labs/lab3/lab3.html",
+    "href": "labs/lab3/lab3.html",
+    "title": "Lab3",
+    "section": "",
+    "text": "In this lab, UPduino v3.1 FPGA is programmed to display 2 7-segment displays controlled by a 4x4 matrix keypad. On a key press the right LED displays the input and a new press, updates and pushes the past number to the right display. Due to the power draw of the 7-segment displays the FPGA can only power one at a time therefor time multiplexing at 80Hz to alternate the anodes of the dual 7-segment displays using PNP transistors."
+  },
+  {
+    "objectID": "labs/lab3/lab3.html#introduction",
+    "href": "labs/lab3/lab3.html#introduction",
+    "title": "Lab3",
+    "section": "",
+    "text": "In this lab, UPduino v3.1 FPGA is programmed to display 2 7-segment displays controlled by a 4x4 matrix keypad. On a key press the right LED displays the input and a new press, updates and pushes the past number to the right display. Due to the power draw of the 7-segment displays the FPGA can only power one at a time therefor time multiplexing at 80Hz to alternate the anodes of the dual 7-segment displays using PNP transistors."
+  },
+  {
+    "objectID": "labs/lab3/lab3.html#design-and-testing-methodology",
+    "href": "labs/lab3/lab3.html#design-and-testing-methodology",
+    "title": "Lab3",
+    "section": "Design and Testing Methodology:",
+    "text": "Design and Testing Methodology:\nBuilding off lab2 7-Segment display circuit, The off board LED’s are replaced with the 4x4 matrix keypad with rows and outputs to and columns as inputs. Since the keyboard matrix works as switches connecting rows and columns to decode an input only one row can be powered at a time. Cycling through the rows waiting for a column input can be decoded for the specific key pressed. Once an input is detected a FSM as seen below is used to store the input, wait a period of about 100 ms to avoid D-bounce errors, wait for a release of the specific key ,and wait again for the release D-bounce.\n\n\n\nFigure 1: FSM design\n\n\nFor Digital methodology the on-board high-speed oscillator (HSOSC) from the iCE40 UltraPlus primitive library was used to generate a clock signal at 48 MHz. Then, a counter was used to divide the high frequency clock signal down to 160Hz to still be smooth to the eye without the display bleeding together while switching the row power fast enough to capture all inputs.\nTo test the design a Testbench for the 7-segment displays was already developed and tested in lab2.\nFirst checking initial conditions after reset with the adder and segment displays. then while only one anode is on checking a combination of inputs to confirm the LED adder and the 7-segment display output. Testbenches were made to check each submodule to very individual logic."
+  },
+  {
+    "objectID": "labs/lab3/lab3.html#technical-documentation",
+    "href": "labs/lab3/lab3.html#technical-documentation",
+    "title": "Lab3",
+    "section": "Technical Documentation:",
+    "text": "Technical Documentation:"
+  },
+  {
+    "objectID": "labs/lab3/lab3.html#results-and-discussion",
+    "href": "labs/lab3/lab3.html#results-and-discussion",
+    "title": "Lab3",
+    "section": "Results and Discussion:",
+    "text": "Results and Discussion:"
+  },
+  {
+    "objectID": "labs/lab3/lab3.html#conclusion",
+    "href": "labs/lab3/lab3.html#conclusion",
+    "title": "Lab3",
+    "section": "Conclusion",
+    "text": "Conclusion\nThe design successfully displayed both 7-segment LED’s without bleeding or visible oscillation or key-press glitches. This lab took around 15 hours."
+  },
+  {
+    "objectID": "labs/lab3/lab3.html#ai-prototype-summary",
+    "href": "labs/lab3/lab3.html#ai-prototype-summary",
+    "title": "Lab3",
+    "section": "AI Prototype Summary",
+    "text": "AI Prototype Summary\nChatGPT was able to generate a large file for the Monolithic design that did pass synthesis. I was super impressed by this because usually ai cant do large scale code. It did take longer than the past times but not by much at all. The code itself seems to use similiar high level logic to mine but the actual syntax is very different.\nThe modular prompts failed synthesis with many errors like unknown modules. So using the modular pompting I think the AI mixed its responses poorly. If I think both versions would require careful usage to work properly."
+  },
+  {
     "objectID": "labs/lab1/lab1.html",
     "href": "labs/lab1/lab1.html",
     "title": "Lab1",
@@ -110,6 +159,48 @@
     "title": "Lab2",
     "section": "AI Prototype Summary",
     "text": "AI Prototype Summary\nChatGPT was able to generate a large file but had difficulty calling the other modules correctly. To me the code it generated was much more complicated than it needed to be using syntax I am unfamiliar with. The code is logically sound after inspection but did not synthesize first try. I think if I were to work with this code for a bit I could get it working much faster than it took me."
+  },
+  {
+    "objectID": "labs/lab4/lab4.html",
+    "href": "labs/lab4/lab4.html",
+    "title": "Lab4",
+    "section": "",
+    "text": "In this lab, a Nucleo-L432KC micro-controller is programmed to play 2 songs on a LM386 low power speaker."
+  },
+  {
+    "objectID": "labs/lab4/lab4.html#introduction",
+    "href": "labs/lab4/lab4.html#introduction",
+    "title": "Lab4",
+    "section": "",
+    "text": "In this lab, a Nucleo-L432KC micro-controller is programmed to play 2 songs on a LM386 low power speaker."
+  },
+  {
+    "objectID": "labs/lab4/lab4.html#design-and-testing-methodology",
+    "href": "labs/lab4/lab4.html#design-and-testing-methodology",
+    "title": "Lab4",
+    "section": "Design and Testing Methodology:",
+    "text": "Design and Testing Methodology:\nThe design of this lab was build largely based off of the starter code from from the E-155 Git repository. This provided the macros and memory maps to use Flash, GPIO, and RCC in the microntroller. To utilize TIM15 and TIM16 a header-file with the register map layout at the correct memory was made to reference and active the proper outputs. To get notes to play 3 function were made en15_16_APB(), wait and PWM. The en15_16_APB() functions instantiates the needed path so TIM15 and TIM16 get the system clock at 80Mhz. The wait function using TIM15 is used for the duration of notes or pauses and utilizes the a set prescaler at 799 to divide the clock to 1000hz then sets the ARR register value to the inputed milliseconds times 100 to be in the right unit of hertz. There is a while loop waiting for the ARR overflow bit is set once the wait time has past. The PWM function sets TIM16 to a desired frequency. It does this by first cheking if the frequency is 0 to freeze the system and avoid divide by 0 issues. Then divides 80Mhz by the desired frequency into a temp variable to see if only ARR is needed if the value is to large past the 16 bit register size it divides the temp variable by 2 and multiplies the prescaler by 2 until it can fit into ARR. The main function instatiates the all the macros and houses the song frequency and duration tables. The main function then goes through the table inputing into the wait and PWM function to play the songs.\nTo test the system calculations for maximum and minimum frequency and wait times were calculated as well as the expected error in output frequency as seen below."
+  },
+  {
+    "objectID": "labs/lab4/lab4.html#technical-documentation",
+    "href": "labs/lab4/lab4.html#technical-documentation",
+    "title": "Lab4",
+    "section": "Technical Documentation:",
+    "text": "Technical Documentation:"
+  },
+  {
+    "objectID": "labs/lab4/lab4.html#conclusion",
+    "href": "labs/lab4/lab4.html#conclusion",
+    "title": "Lab4",
+    "section": "Conclusion",
+    "text": "Conclusion\nThe design successfully played Fur Elise and the ice cream truck song. This lab took around 10 hours."
+  },
+  {
+    "objectID": "labs/lab4/lab4.html#ai-prototype-summary",
+    "href": "labs/lab4/lab4.html#ai-prototype-summary",
+    "title": "Lab4",
+    "section": "AI Prototype Summary",
+    "text": "AI Prototype Summary\nChatGPT Chose to use TIM2 instead of TIM15 TIM16. The calculations all looked good. The registers it chose look correct although I didn’t use TIM2. I am suprised how well it responded with needed info. I also asked it for code which it did, it seems like the the register instantiation looked good but I didn’t try uploading it."
   },
   {
     "objectID": "labs.html#lab-2-multiplexed-7-segment-display",

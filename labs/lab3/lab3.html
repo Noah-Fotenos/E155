@@ -116,8 +116,27 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction:</a></li>
+  <li><a href="#design-and-testing-methodology" id="toc-design-and-testing-methodology" class="nav-link" data-scroll-target="#design-and-testing-methodology">Design and Testing Methodology:</a></li>
+  <li><a href="#technical-documentation" id="toc-technical-documentation" class="nav-link" data-scroll-target="#technical-documentation">Technical Documentation:</a></li>
+  <li><a href="#code" id="toc-code" class="nav-link" data-scroll-target="#code">Code</a></li>
+  <li><a href="#block-diagram" id="toc-block-diagram" class="nav-link" data-scroll-target="#block-diagram">Block Diagram:</a></li>
+  <li><a href="#schematic" id="toc-schematic" class="nav-link" data-scroll-target="#schematic">Schematic</a>
+  <ul class="collapse">
+  <li><a href="#results-and-discussion" id="toc-results-and-discussion" class="nav-link" data-scroll-target="#results-and-discussion">Results and Discussion:</a></li>
+  </ul></li>
+  <li><a href="#testbench-simulation" id="toc-testbench-simulation" class="nav-link" data-scroll-target="#testbench-simulation">Testbench Simulation:</a>
+  <ul class="collapse">
+  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a></li>
+  <li><a href="#ai-prototype-summary" id="toc-ai-prototype-summary" class="nav-link" data-scroll-target="#ai-prototype-summary">AI Prototype Summary</a></li>
+  </ul></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -141,8 +160,92 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<section id="introduction" class="level2">
+<h2 class="anchored" data-anchor-id="introduction">Introduction:</h2>
+<p>In this lab, UPduino v3.1 FPGA is programmed to display 2 7-segment displays controlled by a 4x4 matrix keypad. On a key press the right LED displays the input and a new press, updates and pushes the past number to the right display. Due to the power draw of the 7-segment displays the FPGA can only power one at a time therefor time multiplexing at 80Hz to alternate the anodes of the dual 7-segment displays using PNP transistors.</p>
+</section>
+<section id="design-and-testing-methodology" class="level2">
+<h2 class="anchored" data-anchor-id="design-and-testing-methodology">Design and Testing Methodology:</h2>
+<p>Building off <a href="labs/lab2/lab2.qmd">lab2</a> 7-Segment display circuit, The off board LED’s are replaced with the 4x4 matrix keypad with rows and outputs to and columns as inputs. Since the keyboard matrix works as switches connecting rows and columns to decode an input only one row can be powered at a time. Cycling through the rows waiting for a column input can be decoded for the specific key pressed. Once an input is detected a FSM as seen below is used to store the input, wait a period of about 100 ms to avoid D-bounce errors, wait for a release of the specific key ,and wait again for the release D-bounce.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/fsm.jpeg" class="img-fluid figure-img"></p>
+<figcaption>Figure 1: FSM design</figcaption>
+</figure>
+</div>
+<p>For Digital methodology the on-board high-speed oscillator (HSOSC) from the iCE40 UltraPlus primitive library was used to generate a clock signal at 48 MHz. Then, a counter was used to divide the high frequency clock signal down to 160Hz to still be smooth to the eye without the display bleeding together while switching the row power fast enough to capture all inputs.</p>
+<p>To test the design a Testbench for the 7-segment displays was already developed and tested in <a href="labs/lab2/lab2.qmd">lab2</a>.</p>
+<p>First checking initial conditions after reset with the adder and segment displays. then while only one anode is on checking a combination of inputs to confirm the LED adder and the 7-segment display output. Testbenches were made to check each submodule to very individual logic.</p>
+</section>
+<section id="technical-documentation" class="level2">
+<h2 class="anchored" data-anchor-id="technical-documentation">Technical Documentation:</h2>
+</section>
+<section id="code" class="level1">
+<h1>Code</h1>
+<p>The source code can be found in the associated <a href="https://github.com/Noah-Fotenos/E155/lab3">Github repository</a>.</p>
+</section>
+<section id="block-diagram" class="level1">
+<h1>Block Diagram:</h1>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/block.jpeg" class="img-fluid figure-img"></p>
+<figcaption>Figure 2: Block Diagram of Verilog design</figcaption>
+</figure>
+</div>
+<p>The block diagram in Figure 1 demonstrates the overall architecture of the design. The top-level module Lab3_nf includes 7 submodules: the high-speed oscillator block (HSOSC), the clock divider module (counter), and combinational logic block to decode the input signal into hex display encoding for the 7-segment display(nf_seven_seg_disp), lab3_buttonpress to decode the inputs, lab3_FSM, to deal with debouncing and release, lab3_holdstate, to do the led pushing, and lab3_rowswitch to cycle power to the rows.</p>
+</section>
+<section id="schematic" class="level1">
+<h1>Schematic</h1>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/schematic.jpeg" class="img-fluid figure-img"></p>
+<figcaption>Figure 3: Schematic of the physical circuit.</figcaption>
+</figure>
+</div>
+<p>Figure 2 shows the physical layout of the design.. The oscillating I/O pins activate the 2 PNP transisters to give enough current to the 2 anodes of the LED. The display is controlled by the 7 output pins which go to both displayes cathodes. There is also the on board reset to restart the counter if needed. The 4x4 matrix has pulldown resisters for the inputs to ensure they go low when intended.</p>
+<section id="results-and-discussion" class="level2">
+<h2 class="anchored" data-anchor-id="results-and-discussion">Results and Discussion:</h2>
+</section>
+</section>
+<section id="testbench-simulation" class="level1">
+<h1>Testbench Simulation:</h1>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/fsmwaves.png" class="img-fluid figure-img"></p>
+<figcaption>Figure 4: A screenshot of a QuestaSim simulation demonstrating the input and output signals in waveform of FSM testbench</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/fsmsuccess.png" class="img-fluid figure-img"></p>
+<figcaption>Figure 5: A screenshot of a QuestaSim simulation demonstrating assertions inputs passed with 0 failures</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/rowswitchwaves.png" class="img-fluid figure-img"></p>
+<figcaption>Figure 6: A screenshot of a QuestaSim simulation demonstrating the input and output signals in waveform of rowswitch testbench</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/rowswitchsuccess.png" class="img-fluid figure-img"></p>
+<figcaption>Figure 7: A screenshot of a QuestaSim simulation demonstrating assertions inputs passed with 0 failures</figcaption>
+</figure>
+</div>
+<p>Results show the design met all intended objectives while passing all tests in simulation.</p>
+<section id="conclusion" class="level2">
+<h2 class="anchored" data-anchor-id="conclusion">Conclusion</h2>
+<p>The design successfully displayed both 7-segment LED’s without bleeding or visible oscillation or key-press glitches. This lab took around 15 hours.</p>
+</section>
+<section id="ai-prototype-summary" class="level2">
+<h2 class="anchored" data-anchor-id="ai-prototype-summary">AI Prototype Summary</h2>
+<p>ChatGPT was able to generate a large file for the Monolithic design that did pass synthesis. I was super impressed by this because usually ai cant do large scale code. It did take longer than the past times but not by much at all. The code itself seems to use similiar high level logic to mine but the actual syntax is very different.</p>
+<p>The modular prompts failed synthesis with many errors like unknown modules. So using the modular pompting I think the AI mixed its responses poorly. If I think both versions would require careful usage to work properly.</p>
 
 
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
