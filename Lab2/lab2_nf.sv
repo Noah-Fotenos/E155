@@ -17,8 +17,8 @@ module lab2_nf(input reset,
     hf_osc (.CLKHFPU(1'b1), .CLKHFEN(1'b1), .CLKHF(int_osc));
 	
 	lab2_counter count_module(int_osc, reset, counter);
-	
-	// alternate led power suply
+
+	// alternate led power supply
     assign anode1 = counter[23];
     assign anode2 = ~counter[23];
 
