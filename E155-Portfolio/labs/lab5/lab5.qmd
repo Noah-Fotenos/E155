@@ -1,3 +1,42 @@
 ---
 title: "Lab5"
 ---
+
+## Introduction:
+In this lab, a Nucleo-L432KC micro-controller is programmed calculate the RPM of a motor. 
+
+## Design and Testing Methodology:
+The design of this lab was build uses header files from  [E-155 Git repository](https://github.com/HMC-E155/tutorial-interrupts/tree/solution). This provided the macros and memory maps to use Flash, GPIO, USART, and RCC in the microcontroller. Pin A7 and A1 are set up as interrupt signals and the equations in figure 1 are used to calculate the RPS . Within the interrupt handlers first the signals of the motor encoder are checked then the signals are XOR'd to find the direction of the motor since for each encoder the XOR is either 1 or 0 depending on the relation to the other Encoder as seen in Figure 2. Depending on the direction the handler adds or subtracts a global counter to make show the # of edges. This gets converted to RPS. 
+
+
+To compare the ability of polling vs interrupts figure 3 shows the Osciliscope trace of a toggling pin from a polling loop. The frequency shows 600 hz but since this is alternating the actual polling as at 1.2 Khz. Using figure 4 the max RPM was calculated. To find the max interrups frequnecy a Frequency generator was connected to an interrupt pin and increased until behavior was incorrect. 
+
+## Technical Documentation:
+# Code
+The source code can be found in the associated [Github repository](https://github.com/Noah-Fotenos/E155/lab5).
+
+# Calculations:
+
+![Figure 1: Calculation of RPS from Pulses](images/formula.jpeg)
+
+![Figure 2: Signal relationship by direction](images/fig2waves.jpeg)
+
+![Figure 3: Oscope trace of polling toggle pin](images/pollingwaves.jpg)
+
+![Figure 4: Max rpm of polling vs interrupts](images/pollingvsint.jpeg)
+
+
+These calculations show the error margin is well within 1% at the edges of the frequency ranges. As well as acceptiable ranges for Frequency and delay for the songs. 
+
+# Schematic and Flow Chart
+![Figure 5: Schematic of the physical circuit.](images/Schematic.jpeg)
+
+![Figure 6: Flow chart of Interrupts.](images/flowchart.jpeg)
+
+## Conclusion
+
+The design successfully calculated the RPS of the motor. this lab took about 10 hours.
+
+## AI Prototype Summary
+
+ChatGPT did very well with this. It used PA0 and PA1 and essentially did everything within the interrupts with the same logic. However it used macros from an #include I don't know to set up the interrups. I was suprrised about how much background information it provided as well as context for its ideas instead of just suppling the code. 
