@@ -1,3 +1,40 @@
 ---
 title: "Lab4"
 ---
+
+## Introduction:
+In this lab, a Nucleo-L432KC micro-controller is programmed to play 2 songs on a LM386 low power speaker. 
+
+## Design and Testing Methodology:
+The design of this lab was build largely based off of the starter code from from the [E-155 Git repository](https://github.com/HMC-E155/tutorial-clock-configuration/tree/solution/lib). This provided the macros and memory maps to use Flash, GPIO, and RCC in the microntroller. To utilize TIM15 and TIM16 a header-file with the register map layout at the correct memory was made to reference and active the proper outputs. To get notes to play 3 function were made en15_16_APB(), wait and PWM. The en15_16_APB() functions instantiates the needed path so TIM15 and TIM16 get the system clock at 80Mhz. The wait function using TIM15 is used for the duration of notes or pauses and utilizes the a set prescaler at 799 to divide the clock to 1000hz then sets the ARR register value to the inputed milliseconds times 100 to be in the right unit of hertz. There is a while loop waiting for the ARR overflow bit is set once the wait time has past. The PWM function sets TIM16 to a desired frequency. It does this by first cheking if the frequency is 0 to freeze the system and avoid divide by 0 issues. Then divides 80Mhz by the desired frequency into a temp variable to see if only ARR is needed if the value is to large past the 16 bit register size it divides the temp variable by 2 and multiplies the prescaler by 2 until it can fit into ARR. The main function instatiates the all the macros and houses the song frequency and duration tables. The main function then goes through the table inputing into the wait and PWM function to play the songs. 
+
+To test the system calculations for maximum and minimum frequency and wait times were calculated as well as the expected error in output frequency as seen below.  
+
+## Technical Documentation:
+# Code
+The source code can be found in the associated [Github repository](https://github.com/Noah-Fotenos/E155/lab4).
+
+# Calculations:
+
+![Figure 1: Calculation of error for small frequency](images/FrequencyCalc1.jpeg)
+
+![Figure 2: Calculation of error for large frequency](images/FrequencyCalc2.jpeg)
+
+![Figure 3: Calculation of min and max frequency](images/MinandMaxFreq.jpeg)
+
+![Figure 3: Calculation of min and max wait](images/MinMaxDelay.jpeg)
+
+These calculations show the error margin is well within 1% at the edges of the frequency ranges. As well as acceptiable ranges for Frequency and delay for the songs. 
+
+# Schematic
+![Figure 3: Schematic of the physical circuit.](images/Schematic.jpeg)
+
+Figure 2 shows the physical layout of the design with 0p-amp and speaker. 
+
+## Conclusion
+
+The design successfully played Fur Elise and the ice cream truck song. This lab took around 10 hours.
+
+## AI Prototype Summary
+
+ChatGPT Chose to use TIM2 instead of TIM15 TIM16. The calculations all looked good. The registers it chose look correct although I didn't use TIM2. I am surprised how well it responded with needed info. I also asked it for code which it did, it seems like the the register instantiation looked good but I didn't try uploading it. 
