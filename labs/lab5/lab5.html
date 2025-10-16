@@ -105,6 +105,10 @@ ul.task-list li input[type="checkbox"] {
     <a class="nav-link" href="../../labs.html"> 
 <span class="menu-text">Labs</span></a>
   </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../Project.qmd"> 
+<span class="menu-text">Project</span></a>
+  </li>  
 </ul>
           </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
@@ -116,8 +120,23 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction:</a></li>
+  <li><a href="#design-and-testing-methodology" id="toc-design-and-testing-methodology" class="nav-link" data-scroll-target="#design-and-testing-methodology">Design and Testing Methodology:</a></li>
+  <li><a href="#technical-documentation" id="toc-technical-documentation" class="nav-link" data-scroll-target="#technical-documentation">Technical Documentation:</a></li>
+  <li><a href="#code" id="toc-code" class="nav-link" data-scroll-target="#code">Code</a></li>
+  <li><a href="#calculations" id="toc-calculations" class="nav-link" data-scroll-target="#calculations">Calculations:</a></li>
+  <li><a href="#schematic-and-flow-chart" id="toc-schematic-and-flow-chart" class="nav-link" data-scroll-target="#schematic-and-flow-chart">Schematic and Flow Chart</a>
+  <ul class="collapse">
+  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a></li>
+  <li><a href="#ai-prototype-summary" id="toc-ai-prototype-summary" class="nav-link" data-scroll-target="#ai-prototype-summary">AI Prototype Summary</a></li>
+  </ul></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -141,8 +160,75 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<section id="introduction" class="level2">
+<h2 class="anchored" data-anchor-id="introduction">Introduction:</h2>
+<p>In this lab, a Nucleo-L432KC micro-controller is programmed calculate the RPM of a motor.</p>
+</section>
+<section id="design-and-testing-methodology" class="level2">
+<h2 class="anchored" data-anchor-id="design-and-testing-methodology">Design and Testing Methodology:</h2>
+<p>The design of this lab was build uses header files from <a href="https://github.com/HMC-E155/tutorial-interrupts/tree/solution">E-155 Git repository</a>. This provided the macros and memory maps to use Flash, GPIO, USART, and RCC in the microcontroller. Pin A7 and A1 are set up as interrupt signals and the equations in figure 1 are used to calculate the RPS . Within the interrupt handlers first the signals of the motor encoder are checked then the signals are XOR’d to find the direction of the motor since for each encoder the XOR is either 1 or 0 depending on the relation to the other Encoder as seen in Figure 2. Depending on the direction the handler adds or subtracts a global counter to make show the # of edges. This gets converted to RPS.</p>
+<p>To compare the ability of polling vs interrupts figure 3 shows the Osciliscope trace of a toggling pin from a polling loop. The frequency shows 600 hz but since this is alternating the actual polling as at 1.2 Khz. Using figure 4 the max RPM was calculated. To find the max interrups frequnecy a Frequency generator was connected to an interrupt pin and increased until behavior was incorrect.</p>
+</section>
+<section id="technical-documentation" class="level2">
+<h2 class="anchored" data-anchor-id="technical-documentation">Technical Documentation:</h2>
+</section>
+<section id="code" class="level1">
+<h1>Code</h1>
+<p>The source code can be found in the associated <a href="https://github.com/Noah-Fotenos/E155/lab5">Github repository</a>.</p>
+</section>
+<section id="calculations" class="level1">
+<h1>Calculations:</h1>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/formula.jpeg" class="img-fluid figure-img"></p>
+<figcaption>Figure 1: Calculation of RPS from Pulses</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/fig2waves.jpeg" class="img-fluid figure-img"></p>
+<figcaption>Figure 2: Signal relationship by direction</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/pollingwaves.jpg" class="img-fluid figure-img"></p>
+<figcaption>Figure 3: Oscope trace of polling toggle pin</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/pollingvsint.jpeg" class="img-fluid figure-img"></p>
+<figcaption>Figure 4: Max rpm of polling vs interrupts</figcaption>
+</figure>
+</div>
+<p>These calculations show the error margin is well within 1% at the edges of the frequency ranges. As well as acceptiable ranges for Frequency and delay for the songs.</p>
+</section>
+<section id="schematic-and-flow-chart" class="level1">
+<h1>Schematic and Flow Chart</h1>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Schematic.jpeg" class="img-fluid figure-img"></p>
+<figcaption>Figure 5: Schematic of the physical circuit.</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/flowchart.jpeg" class="img-fluid figure-img"></p>
+<figcaption>Figure 6: Flow chart of Interrupts.</figcaption>
+</figure>
+</div>
+<section id="conclusion" class="level2">
+<h2 class="anchored" data-anchor-id="conclusion">Conclusion</h2>
+<p>The design successfully calculated the RPS of the motor. this lab took about 10 hours.</p>
+</section>
+<section id="ai-prototype-summary" class="level2">
+<h2 class="anchored" data-anchor-id="ai-prototype-summary">AI Prototype Summary</h2>
+<p>ChatGPT did very well with this. It used PA0 and PA1 and essentially did everything within the interrupts with the same logic. However it used macros from an #include I don’t know to set up the interrups. I was suprrised about how much background information it provided as well as context for its ideas instead of just suppling the code.</p>
 
 
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

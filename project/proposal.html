@@ -6,8 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Kaden Cassidy and Noah Fotenos">
+<meta name="dcterms.date" content="2025-10-16">
 
-<title>Lab4 – Noah Fotenos E155 Portfolio</title>
+<title>Hardware Tetris Project Proposal – Noah Fotenos E155 Portfolio</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,23 +25,23 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
-<script src="../../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../../">
-<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="../../site_libs/quarto-html/popper.min.js"></script>
-<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-ea385d0e468b0dd5ea5bf0780b1290d9.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-c1fac2584b48ed01fb6e278e36375074.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-ea385d0e468b0dd5ea5bf0780b1290d9.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-c1fac2584b48ed01fb6e278e36375074.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -69,7 +71,7 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 
 
-<link rel="stylesheet" href="../../styles.css">
+<link rel="stylesheet" href="../styles.css">
 </head>
 
 <body class="nav-fixed quarto-light">
@@ -79,7 +81,7 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="../../index.html">
+    <a class="navbar-brand" href="../index.html">
     <span class="navbar-title">Noah Fotenos E155 Portfolio</span>
     </a>
   </div>
@@ -90,23 +92,23 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../index.html"> 
+    <a class="nav-link" href="../index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../blog.html"> 
+    <a class="nav-link" href="../blog.html"> 
 <span class="menu-text">Blog</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../resources.html"> 
+    <a class="nav-link" href="../resources.html"> 
 <span class="menu-text">Resources</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../labs.html"> 
+    <a class="nav-link" href="../labs.html"> 
 <span class="menu-text">Labs</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../Project.qmd"> 
+    <a class="nav-link" href="../Project.qmd"> 
 <span class="menu-text">Project</span></a>
   </li>  
 </ul>
@@ -125,16 +127,29 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction:</a></li>
-  <li><a href="#design-and-testing-methodology" id="toc-design-and-testing-methodology" class="nav-link" data-scroll-target="#design-and-testing-methodology">Design and Testing Methodology:</a></li>
-  <li><a href="#technical-documentation" id="toc-technical-documentation" class="nav-link" data-scroll-target="#technical-documentation">Technical Documentation:</a></li>
-  <li><a href="#code" id="toc-code" class="nav-link" data-scroll-target="#code">Code</a></li>
-  <li><a href="#calculations" id="toc-calculations" class="nav-link" data-scroll-target="#calculations">Calculations:</a></li>
-  <li><a href="#schematic" id="toc-schematic" class="nav-link" data-scroll-target="#schematic">Schematic</a>
+  <li><a href="#project-description-and-overview" id="toc-project-description-and-overview" class="nav-link active" data-scroll-target="#project-description-and-overview">Project Description and Overview</a></li>
+  <li><a href="#proficiency-goals" id="toc-proficiency-goals" class="nav-link" data-scroll-target="#proficiency-goals">Proficiency Goals</a></li>
+  <li><a href="#excellency-goals" id="toc-excellency-goals" class="nav-link" data-scroll-target="#excellency-goals">Excellency Goals</a></li>
+  <li><a href="#fpga-design-details" id="toc-fpga-design-details" class="nav-link" data-scroll-target="#fpga-design-details">FPGA Design Details</a>
   <ul class="collapse">
-  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a></li>
-  <li><a href="#ai-prototype-summary" id="toc-ai-prototype-summary" class="nav-link" data-scroll-target="#ai-prototype-summary">AI Prototype Summary</a></li>
+  <li><a href="#vga-controller" id="toc-vga-controller" class="nav-link" data-scroll-target="#vga-controller">VGA Controller</a></li>
+  <li><a href="#block-map-memory" id="toc-block-map-memory" class="nav-link" data-scroll-target="#block-map-memory">Block Map Memory</a></li>
+  <li><a href="#piece-logic" id="toc-piece-logic" class="nav-link" data-scroll-target="#piece-logic">Piece Logic</a></li>
+  <li><a href="#fsm-game-controller" id="toc-fsm-game-controller" class="nav-link" data-scroll-target="#fsm-game-controller">FSM Game Controller</a></li>
+  <li><a href="#mcu-interface-module" id="toc-mcu-interface-module" class="nav-link" data-scroll-target="#mcu-interface-module">MCU Interface Module</a></li>
+  <li><a href="#clocking-timing" id="toc-clocking-timing" class="nav-link" data-scroll-target="#clocking-timing">Clocking &amp; Timing</a></li>
   </ul></li>
+  <li><a href="#mcu-design-details" id="toc-mcu-design-details" class="nav-link" data-scroll-target="#mcu-design-details">MCU Design Details</a>
+  <ul class="collapse">
+  <li><a href="#random-piece-generation" id="toc-random-piece-generation" class="nav-link" data-scroll-target="#random-piece-generation">Random Piece Generation</a></li>
+  <li><a href="#controller-interface" id="toc-controller-interface" class="nav-link" data-scroll-target="#controller-interface">Controller Interface</a></li>
+  <li><a href="#communication-bridge" id="toc-communication-bridge" class="nav-link" data-scroll-target="#communication-bridge">Communication Bridge</a></li>
+  <li><a href="#progression-logic-excellency" id="toc-progression-logic-excellency" class="nav-link" data-scroll-target="#progression-logic-excellency">Progression Logic (Excellency)</a></li>
+  </ul></li>
+  <li><a href="#budget" id="toc-budget" class="nav-link" data-scroll-target="#budget">Budget</a></li>
+  <li><a href="#calculations" id="toc-calculations" class="nav-link" data-scroll-target="#calculations">Calculations</a></li>
+  <li><a href="#schedule" id="toc-schedule" class="nav-link" data-scroll-target="#schedule">Schedule</a></li>
+  <li><a href="#work-distribution" id="toc-work-distribution" class="nav-link" data-scroll-target="#work-distribution">Work Distribution</a></li>
   </ul>
 </nav>
     </div>
@@ -143,14 +158,26 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Lab4</h1>
+<h1 class="title">Hardware Tetris Project Proposal</h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Kaden Cassidy and Noah Fotenos </p>
+          </div>
+  </div>
     
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">October 16, 2025</p>
+    </div>
+  </div>
   
     
   </div>
@@ -160,69 +187,257 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="introduction" class="level2">
-<h2 class="anchored" data-anchor-id="introduction">Introduction:</h2>
-<p>In this lab, a Nucleo-L432KC micro-controller is programmed to play 2 songs on a LM386 low power speaker.</p>
+<section id="project-description-and-overview" class="level1">
+<h1>Project Description and Overview</h1>
+<p>Our project implements the classic game <strong>Tetris</strong> directly in hardware using an <strong>FPGA</strong> as the game engine and a <strong>microcontroller (MCU)</strong> as a peripheral co-processor. The FPGA handles core game logic and VGA display output, while the MCU manages higher-level logic such as random block generation and controller input translation.</p>
+<p>We plan to leverage the FPGA for deterministic, processing of visual and game logic while using the MCU for tasks that benefit from flexibility, such as pseudo-random number generation and USB input handling.</p>
+<p>Gameplay will be displayed on a <strong>VGA monitor</strong> at refresh rates exceeding <strong>20 Hz</strong> with no flicker or ghosting. The FPGA’s internal memory will maintain the game state and render directly to VGA timing signals. The MCU will periodically supply the FPGA with new pieces and player inputs over a bus interface.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/block_diagram.jpg" class="img-fluid figure-img"></p>
+<figcaption>Figure 1: Block Diagram with all electrical components</figcaption>
+</figure>
+</div>
+<hr>
 </section>
-<section id="design-and-testing-methodology" class="level2">
-<h2 class="anchored" data-anchor-id="design-and-testing-methodology">Design and Testing Methodology:</h2>
-<p>The design of this lab was build largely based off of the starter code from from the <a href="https://github.com/HMC-E155/tutorial-clock-configuration/tree/solution/lib">E-155 Git repository</a>. This provided the macros and memory maps to use Flash, GPIO, and RCC in the microntroller. To utilize TIM15 and TIM16 a header-file with the register map layout at the correct memory was made to reference and active the proper outputs. To get notes to play 3 function were made en15_16_APB(), wait and PWM. The en15_16_APB() functions instantiates the needed path so TIM15 and TIM16 get the system clock at 80Mhz. The wait function using TIM15 is used for the duration of notes or pauses and utilizes the a set prescaler at 799 to divide the clock to 1000hz then sets the ARR register value to the inputed milliseconds times 100 to be in the right unit of hertz. There is a while loop waiting for the ARR overflow bit is set once the wait time has past. The PWM function sets TIM16 to a desired frequency. It does this by first cheking if the frequency is 0 to freeze the system and avoid divide by 0 issues. Then divides 80Mhz by the desired frequency into a temp variable to see if only ARR is needed if the value is to large past the 16 bit register size it divides the temp variable by 2 and multiplies the prescaler by 2 until it can fit into ARR. The main function instatiates the all the macros and houses the song frequency and duration tables. The main function then goes through the table inputing into the wait and PWM function to play the songs.</p>
-<p>To test the system calculations for maximum and minimum frequency and wait times were calculated as well as the expected error in output frequency as seen below.</p>
+<section id="proficiency-goals" class="level1">
+<h1>Proficiency Goals</h1>
+<ul>
+<li>Display updates at &gt;20 Hz<br>
+</li>
+<li>Blocks clear at completed lines and update correctly<br>
+</li>
+<li>Blocks fall at standard rate<br>
+</li>
+<li>New random blocks appear once the previous block settles<br>
+</li>
+<li>Game boundaries prevent invalid movement<br>
+</li>
+<li>No visibly obvious gameplay bugs<br>
+</li>
+<li>Player can control piece movement with button input<br>
+</li>
+<li>Blocks move left and right</li>
+</ul>
+<hr>
 </section>
-<section id="technical-documentation" class="level2">
-<h2 class="anchored" data-anchor-id="technical-documentation">Technical Documentation:</h2>
+<section id="excellency-goals" class="level1">
+<h1>Excellency Goals</h1>
+<ul>
+<li>Game speeds up progressively<br>
+</li>
+<li>USB controller used to play game<br>
+</li>
+<li>Block rotation implemented<br>
+</li>
+<li>Controller operates in “arcade mode”<br>
+</li>
+<li>Hard drop implemented<br>
+</li>
+<li>Next piece preview displayed</li>
+</ul>
+<hr>
 </section>
-<section id="code" class="level1">
-<h1>Code</h1>
-<p>The source code can be found in the associated <a href="https://github.com/Noah-Fotenos/E155/lab4">Github repository</a>.</p>
+<section id="fpga-design-details" class="level1">
+<h1>FPGA Design Details</h1>
+<p>The FPGA implements a <strong>hardware Tetris engine</strong> consisting of the following modules:</p>
+<section id="vga-controller" class="level3">
+<h3 class="anchored" data-anchor-id="vga-controller">VGA Controller</h3>
+<p>Generates 800x600 @ 60 Hz timing signals and color data from block map memory.</p>
+</section>
+<section id="block-map-memory" class="level3">
+<h3 class="anchored" data-anchor-id="block-map-memory">Block Map Memory</h3>
+<p>Game data stored in on-chip <strong>SRAM</strong>.</p>
+</section>
+<section id="piece-logic" class="level3">
+<h3 class="anchored" data-anchor-id="piece-logic">Piece Logic</h3>
+<p>Determines piece movement, collision detection, and line clears for each frame.</p>
+</section>
+<section id="fsm-game-controller" class="level3">
+<h3 class="anchored" data-anchor-id="fsm-game-controller">FSM Game Controller</h3>
+<p>Controls falling timing, piece locking, and score tracking.</p>
+</section>
+<section id="mcu-interface-module" class="level3">
+<h3 class="anchored" data-anchor-id="mcu-interface-module">MCU Interface Module</h3>
+<p>Implements a simple <strong>SPI</strong> interface to receive player inputs (left, right, rotate, drop) and new piece identifiers from the MCU.</p>
+</section>
+<section id="clocking-timing" class="level3">
+<h3 class="anchored" data-anchor-id="clocking-timing">Clocking &amp; Timing</h3>
+<p>Uses a <strong>80 MHz</strong> system clock for VGA synchronization and deterministic updates at &gt;20 Hz refresh rate.</p>
+<hr>
+</section>
+</section>
+<section id="mcu-design-details" class="level1">
+<h1>MCU Design Details</h1>
+<p>The MCU acts as an <strong>intelligent peripheral</strong>, responsible for higher-level coordination:</p>
+<section id="random-piece-generation" class="level3">
+<h3 class="anchored" data-anchor-id="random-piece-generation">Random Piece Generation</h3>
+<p>Implements a pseudo-random sequence ensuring fair block distribution.</p>
+</section>
+<section id="controller-interface" class="level3">
+<h3 class="anchored" data-anchor-id="controller-interface">Controller Interface</h3>
+<p>Reads inputs from buttons or a USB gamepad and translates them into movement commands.</p>
+</section>
+<section id="communication-bridge" class="level3">
+<h3 class="anchored" data-anchor-id="communication-bridge">Communication Bridge</h3>
+<p>Uses <strong>SPI</strong> or <strong>UART</strong> to send player inputs and new-piece data to the FPGA.</p>
+</section>
+<section id="progression-logic-excellency" class="level3">
+<h3 class="anchored" data-anchor-id="progression-logic-excellency">Progression Logic (Excellency)</h3>
+<p>Optionally increases drop speed, handles “arcade mode,” and shows the “next piece” preview by pre-sending upcoming block data.</p>
+<p>A small task loop coordinates controller input polling and data buffering.<br>
+An interrupt will be used to request data from the MCU.</p>
+<hr>
+</section>
+</section>
+<section id="budget" class="level1">
+<h1>Budget</h1>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Item</th>
+<th>Quantity</th>
+<th>Cost</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>VGA Breakout</td>
+<td>1×</td>
+<td>$14.26</td>
+<td>Purchased</td>
+</tr>
+<tr class="even">
+<td>GameCube Controller</td>
+<td>1×</td>
+<td>$12.00</td>
+<td>Purchased</td>
+</tr>
+<tr class="odd">
+<td><strong>Total</strong></td>
+<td>—</td>
+<td><strong>$26.26</strong></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>STM32 Nucleo-32 MCU</td>
+<td>1×</td>
+<td>Have</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>UPduino iCE40 FPGA</td>
+<td>1×</td>
+<td>Have</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>1000 ft Wire</td>
+<td>1×</td>
+<td>Stockroom</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>VGA Display</td>
+<td>1×</td>
+<td>Borrowed (Xavier)</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<hr>
 </section>
 <section id="calculations" class="level1">
-<h1>Calculations:</h1>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/FrequencyCalc1.jpeg" class="img-fluid figure-img"></p>
-<figcaption>Figure 1: Calculation of error for small frequency</figcaption>
-</figure>
-</div>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/FrequencyCalc2.jpeg" class="img-fluid figure-img"></p>
-<figcaption>Figure 2: Calculation of error for large frequency</figcaption>
-</figure>
-</div>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/MinandMaxFreq.jpeg" class="img-fluid figure-img"></p>
-<figcaption>Figure 3: Calculation of min and max frequency</figcaption>
-</figure>
-</div>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/MinMaxDelay.jpeg" class="img-fluid figure-img"></p>
-<figcaption>Figure 3: Calculation of min and max wait</figcaption>
-</figure>
-</div>
-<p>These calculations show the error margin is well within 1% at the edges of the frequency ranges. As well as acceptiable ranges for Frequency and delay for the songs.</p>
+<h1>Calculations</h1>
+<ul>
+<li><strong>SVGA</strong> requires 40 MHz for 800×600.<br>
+The FPGA will divide the clock by 2 to achieve standard timing.</li>
+</ul>
+<hr>
 </section>
-<section id="schematic" class="level1">
-<h1>Schematic</h1>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/Schematic.jpeg" class="img-fluid figure-img"></p>
-<figcaption>Figure 3: Schematic of the physical circuit.</figcaption>
-</figure>
-</div>
-<p>Figure 2 shows the physical layout of the design with 0p-amp and speaker.</p>
-<section id="conclusion" class="level2">
-<h2 class="anchored" data-anchor-id="conclusion">Conclusion</h2>
-<p>The design successfully played Fur Elise and the ice cream truck song. This lab took around 10 hours.</p>
+<section id="schedule" class="level1">
+<h1>Schedule</h1>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Week</th>
+<th>Task</th>
+<th>Hours</th>
+<th>Lead</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>1 (Start 10/27)</strong></td>
+<td>Project demo setup</td>
+<td>2 h</td>
+<td>Both</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>VGA implementation</td>
+<td>15 h +</td>
+<td>Kaden</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>MCU–FPGA link</td>
+<td>4 h +</td>
+<td>Noah</td>
+</tr>
+<tr class="even">
+<td><strong>2</strong></td>
+<td>FPGA game shifter</td>
+<td>10 h +</td>
+<td>Noah</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>MCU randomization + USB logic</td>
+<td>10 h +</td>
+<td>Kaden</td>
+</tr>
+<tr class="even">
+<td><strong>3</strong></td>
+<td>Finish game (Proficiency demo)</td>
+<td>3 h +</td>
+<td>Both</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>Demo presentation</td>
+<td>2 h +</td>
+<td>Both</td>
+</tr>
+<tr class="even">
+<td><strong>4</strong></td>
+<td>Begin Excellency work</td>
+<td>5 h +</td>
+<td>Both</td>
+</tr>
+<tr class="odd">
+<td><strong>5</strong></td>
+<td>Debug</td>
+<td>10 h +</td>
+<td>Both</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>Final presentation</td>
+<td>2 h +</td>
+<td>Both</td>
+</tr>
+</tbody>
+</table>
+<hr>
 </section>
-<section id="ai-prototype-summary" class="level2">
-<h2 class="anchored" data-anchor-id="ai-prototype-summary">AI Prototype Summary</h2>
-<p>ChatGPT Chose to use TIM2 instead of TIM15 TIM16. The calculations all looked good. The registers it chose look correct although I didn’t use TIM2. I am surprised how well it responded with needed info. I also asked it for code which it did, it seems like the the register instantiation looked good but I didn’t try uploading it.</p>
+<section id="work-distribution" class="level1">
+<h1>Work Distribution</h1>
+<p>We plan on distributing work within each project aspect. Most of the time, we will work together in the lab; however, for aspects more appropriate for individual focus, we will assign tasks based on each member’s strengths and experience.</p>
+<hr>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->
