@@ -8,6 +8,6 @@ module lab2_counter(input logic clk, reset,
 					
 	always_ff @(posedge clk, negedge reset) begin
 		if(reset == 0) counter <= 0; 
-		else counter <= counter + 28;
+		else counter <= counter + 27'd28;
     end
 endmodule

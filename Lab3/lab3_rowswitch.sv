@@ -3,7 +3,7 @@
 //8/28/2025
 //E155 lab 3 decode button press module
  
-module lab3_rowswitch(input logic clk, reset, en,
+module lab3_rowswitch(input logic clk, reset,
                     output logic [3:0] rows);
 					
 		logic [3:0] rowtemp; 
