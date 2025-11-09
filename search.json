@@ -7,11 +7,11 @@
     "text": "MicroP Goals\n\n\nBroadly what I want to achieve from E155\n\n\n\n\n\nAug 29, 2025\n\n\nNoah Fotenos\n\n\n\n\n\nNo matching items"
   },
   {
-    "objectID": "project/proposal.html",
-    "href": "project/proposal.html",
-    "title": "Hardware Tetris Project Proposal",
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "E155 Portfolio",
     "section": "",
-    "text": "Project Description and Overview\nOur project implements the classic game Tetris directly in hardware using an FPGA as the game engine and a microcontroller (MCU) as a peripheral co-processor. The FPGA handles core game logic and VGA display output, while the MCU manages higher-level logic such as random block generation and controller input translation.\nWe plan to leverage the FPGA for deterministic, processing of visual and game logic while using the MCU for tasks that benefit from flexibility, such as pseudo-random number generation and USB input handling.\nGameplay will be displayed on a VGA monitor at refresh rates exceeding 20 Hz with no flicker or ghosting. The FPGA’s internal memory will maintain the game state and render directly to VGA timing signals. The MCU will periodically supply the FPGA with new pieces and player inputs over a bus interface.\n\n\n\nFigure 1: Block Diagram with all electrical components\n\n\n\n\n\nProficiency Goals\n\nDisplay updates at &gt;20 Hz\n\nBlocks clear at completed lines and update correctly\n\nBlocks fall at standard rate\n\nNew random blocks appear once the previous block settles\n\nGame boundaries prevent invalid movement\n\nNo visibly obvious gameplay bugs\n\nPlayer can control piece movement with button input\n\nBlocks move left and right\n\n\n\n\nExcellency Goals\n\nGame speeds up progressively\n\nUSB controller used to play game\n\nBlock rotation implemented\n\nController operates in “arcade mode”\n\nHard drop implemented\n\nNext piece preview displayed\n\n\n\n\nFPGA Design Details\nThe FPGA implements a hardware Tetris engine consisting of the following modules:\n\nVGA Controller\nGenerates 800x600 @ 60 Hz timing signals and color data from block map memory.\n\n\nBlock Map Memory\nGame data stored in on-chip SRAM.\n\n\nPiece Logic\nDetermines piece movement, collision detection, and line clears for each frame.\n\n\nFSM Game Controller\nControls falling timing, piece locking, and score tracking.\n\n\nMCU Interface Module\nImplements a simple SPI interface to receive player inputs (left, right, rotate, drop) and new piece identifiers from the MCU.\n\n\nClocking & Timing\nUses a 80 MHz system clock for VGA synchronization and deterministic updates at &gt;20 Hz refresh rate.\n\n\n\n\nMCU Design Details\nThe MCU acts as an intelligent peripheral, responsible for higher-level coordination:\n\nRandom Piece Generation\nImplements a pseudo-random sequence ensuring fair block distribution.\n\n\nController Interface\nReads inputs from buttons or a USB gamepad and translates them into movement commands.\n\n\nCommunication Bridge\nUses SPI or UART to send player inputs and new-piece data to the FPGA.\n\n\nProgression Logic (Excellency)\nOptionally increases drop speed, handles “arcade mode,” and shows the “next piece” preview by pre-sending upcoming block data.\nA small task loop coordinates controller input polling and data buffering.\nAn interrupt will be used to request data from the MCU.\n\n\n\n\nBudget\n\n\n\nItem\nQuantity\nCost\nNotes\n\n\n\n\nVGA Breakout\n1×\n$14.26\nPurchased\n\n\nGameCube Controller\n1×\n$12.00\nPurchased\n\n\nTotal\n—\n$26.26\n\n\n\nSTM32 Nucleo-32 MCU\n1×\nHave\n\n\n\nUPduino iCE40 FPGA\n1×\nHave\n\n\n\n1000 ft Wire\n1×\nStockroom\n\n\n\nVGA Display\n1×\nBorrowed (Xavier)\n\n\n\n\n\n\n\nCalculations\n\nSVGA requires 40 MHz for 800×600.\nThe FPGA will divide the clock by 2 to achieve standard timing.\n\n\n\n\nSchedule\n\n\n\nWeek\nTask\nHours\nLead\n\n\n\n\n1 (Start 10/27)\nProject demo setup\n2 h\nBoth\n\n\n\nVGA implementation\n15 h +\nKaden\n\n\n\nMCU–FPGA link\n4 h +\nNoah\n\n\n2\nFPGA game shifter\n10 h +\nNoah\n\n\n\nMCU randomization + USB logic\n10 h +\nKaden\n\n\n3\nFinish game (Proficiency demo)\n3 h +\nBoth\n\n\n\nDemo presentation\n2 h +\nBoth\n\n\n4\nBegin Excellency work\n5 h +\nBoth\n\n\n5\nDebug\n10 h +\nBoth\n\n\n\nFinal presentation\n2 h +\nBoth\n\n\n\n\n\n\nWork Distribution\nWe plan on distributing work within each project aspect. Most of the time, we will work together in the lab; however, for aspects more appropriate for individual focus, we will assign tasks based on each member’s strengths and experience."
+    "text": "Noah Fotenos is a Junior at Harvey Mudd College majoring in Engineering."
   },
   {
     "objectID": "posts/first-post.html",
@@ -110,6 +110,41 @@
     "title": "Lab5",
     "section": "AI Prototype Summary",
     "text": "AI Prototype Summary\nChatGPT did very well with this. It used PA0 and PA1 and essentially did everything within the interrupts with the same logic. However it used macros from an #include I don’t know to set up the interrups. I was suprrised about how much background information it provided as well as context for its ideas instead of just suppling the code."
+  },
+  {
+    "objectID": "labs/lab6/lab6.html",
+    "href": "labs/lab6/lab6.html",
+    "title": "Lab6",
+    "section": "",
+    "text": "In this lab, a Nucleo-L432KC micro-controller is programmed read temperature through SPI and send it to a website using UART and HTML."
+  },
+  {
+    "objectID": "labs/lab6/lab6.html#introduction",
+    "href": "labs/lab6/lab6.html#introduction",
+    "title": "Lab6",
+    "section": "",
+    "text": "In this lab, a Nucleo-L432KC micro-controller is programmed read temperature through SPI and send it to a website using UART and HTML."
+  },
+  {
+    "objectID": "labs/lab6/lab6.html#design-and-testing-methodology",
+    "href": "labs/lab6/lab6.html#design-and-testing-methodology",
+    "title": "Lab6",
+    "section": "Design and Testing Methodology:",
+    "text": "Design and Testing Methodology:\nThe design of this lab was build uses header files from E-155 Git repository and Website starter. This provided the macros and memory maps to use Flash, GPIO, USART, RCC in the microcontroller, and code for turning on and off an LED with buttons on a website through wifi. To read temperature functions for initiating SPI, sending and receiving data, and configuration changes, were needed. The temperature sensor has configuration registers and 2 8 bit registers for the MSB of the the temperature data and 8 bits for the LSB which hold the fractional parts. SPI used 8 bit busses to transfer data needing 2 transactions to receive data one for accessing the relevant register and the second to read/write. both transactions are sandwiched by turning on and off the chip select to make one real transaction.\nTo understand the SPI signals the Logic Analyzer on the Osciliscope was used to read transactions as seen in figure 2 ## Technical Documentation:"
+  },
+  {
+    "objectID": "labs/lab6/lab6.html#conclusion",
+    "href": "labs/lab6/lab6.html#conclusion",
+    "title": "Lab6",
+    "section": "Conclusion",
+    "text": "Conclusion\nThe design successfully reads and displays temperature on the website with configurable resolution. this lab took about 15 hours."
+  },
+  {
+    "objectID": "labs/lab6/lab6.html#ai-prototype-summary",
+    "href": "labs/lab6/lab6.html#ai-prototype-summary",
+    "title": "Lab6",
+    "section": "AI Prototype Summary",
+    "text": "AI Prototype Summary\ntranscript link ChatGPT made a extremely large and complicated html file that I could not figure out how to put into my code. It did leave and notate an area to replace with my data information but was not applicable for this lab at all. I had function for the temperature retrieval and other helper functions. The html code worked and made a really cool website that does alot of things but seems to be making stuff up. The C code looked too simple and did not compile. It appears like it did not even try to initiate SPI nor set up a way to interact with the physical design."
   },
   {
     "objectID": "labs/lab1/lab1.html",
@@ -285,13 +320,6 @@
     "title": "Labs",
     "section": "Lab 7: The Advanced Encryption Standard",
     "text": "Lab 7: The Advanced Encryption Standard"
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "E155 Portfolio",
-    "section": "",
-    "text": "Noah Fotenos is a Junior at Harvey Mudd College majoring in Engineering."
   },
   {
     "objectID": "resources.html",

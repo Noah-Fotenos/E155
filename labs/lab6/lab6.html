@@ -105,10 +105,6 @@ ul.task-list li input[type="checkbox"] {
     <a class="nav-link" href="../../labs.html"> 
 <span class="menu-text">Labs</span></a>
   </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../../Project.qmd"> 
-<span class="menu-text">Project</span></a>
-  </li>  
 </ul>
           </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
@@ -120,8 +116,22 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction:</a></li>
+  <li><a href="#design-and-testing-methodology" id="toc-design-and-testing-methodology" class="nav-link" data-scroll-target="#design-and-testing-methodology">Design and Testing Methodology:</a></li>
+  <li><a href="#code" id="toc-code" class="nav-link" data-scroll-target="#code">Code</a></li>
+  <li><a href="#logic-analyzer" id="toc-logic-analyzer" class="nav-link" data-scroll-target="#logic-analyzer">Logic Analyzer:</a></li>
+  <li><a href="#schematic-and-flow-chart" id="toc-schematic-and-flow-chart" class="nav-link" data-scroll-target="#schematic-and-flow-chart">Schematic and Flow Chart</a>
+  <ul class="collapse">
+  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a></li>
+  <li><a href="#ai-prototype-summary" id="toc-ai-prototype-summary" class="nav-link" data-scroll-target="#ai-prototype-summary">AI Prototype Summary</a></li>
+  </ul></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -145,8 +155,48 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<section id="introduction" class="level2">
+<h2 class="anchored" data-anchor-id="introduction">Introduction:</h2>
+<p>In this lab, a Nucleo-L432KC micro-controller is programmed read temperature through SPI and send it to a website using UART and HTML.</p>
+</section>
+<section id="design-and-testing-methodology" class="level2">
+<h2 class="anchored" data-anchor-id="design-and-testing-methodology">Design and Testing Methodology:</h2>
+<p>The design of this lab was build uses header files from <a href="https://github.com/HMC-E155/hmc-e155">E-155 Git repository</a> and <a href="https://github.com/HMC-E155/tutorial-esp8266-click-webserver">Website starter</a>. This provided the macros and memory maps to use Flash, GPIO, USART, RCC in the microcontroller, and code for turning on and off an LED with buttons on a website through wifi. To read temperature functions for initiating SPI, sending and receiving data, and configuration changes, were needed. The temperature sensor has configuration registers and 2 8 bit registers for the MSB of the the temperature data and 8 bits for the LSB which hold the fractional parts. SPI used 8 bit busses to transfer data needing 2 transactions to receive data one for accessing the relevant register and the second to read/write. both transactions are sandwiched by turning on and off the chip select to make one real transaction.</p>
+<p>To understand the SPI signals the Logic Analyzer on the Osciliscope was used to read transactions as seen in figure 2 ## Technical Documentation:</p>
+</section>
+<section id="code" class="level1">
+<h1>Code</h1>
+<p>The source code can be found in the associated <a href="https://github.com/Noah-Fotenos/MicroPLab6/">Github repository</a>.</p>
+</section>
+<section id="logic-analyzer" class="level1">
+<h1>Logic Analyzer:</h1>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/LASPI.jpg" class="img-fluid figure-img"></p>
+<figcaption>Figure 2: Logic Analyzer trace of initialization and 1 temperature</figcaption>
+</figure>
+</div>
+<p>In the Logic Analyzer we can see the initiation transaction and one temperature reading, writing to adress 0x08 to the writable adress then putting 0xE8 to configure the resolution. then two transactions taking the MSB and LSB of the temperatrure readings.</p>
+</section>
+<section id="schematic-and-flow-chart" class="level1">
+<h1>Schematic and Flow Chart</h1>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/schematic.jpeg" class="img-fluid figure-img"></p>
+<figcaption>Figure 2: Schematic of the physical circuit.</figcaption>
+</figure>
+</div>
+<section id="conclusion" class="level2">
+<h2 class="anchored" data-anchor-id="conclusion">Conclusion</h2>
+<p>The design successfully reads and displays temperature on the website with configurable resolution. this lab took about 15 hours.</p>
+</section>
+<section id="ai-prototype-summary" class="level2">
+<h2 class="anchored" data-anchor-id="ai-prototype-summary">AI Prototype Summary</h2>
+<p><a href="https://chatgpt.com/share/690d1023-b294-8012-b2ca-8a9444a60634">transcript link</a> ChatGPT made a extremely large and complicated html file that I could not figure out how to put into my code. It did leave and notate an area to replace with my data information but was not applicable for this lab at all. I had function for the temperature retrieval and other helper functions. The html code worked and made a really cool website that does alot of things but seems to be making stuff up. The C code looked too simple and did not compile. It appears like it did not even try to initiate SPI nor set up a way to interact with the physical design.</p>
 
 
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
