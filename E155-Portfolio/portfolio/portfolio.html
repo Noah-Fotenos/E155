@@ -1,0 +1,1001 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.7.33">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Project Portfolio: Microcontroller–FPGA Tetris System – Noah Fotenos E155 Portfolio</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-ea385d0e468b0dd5ea5bf0780b1290d9.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-c1fac2584b48ed01fb6e278e36375074.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../../styles.css">
+</head>
+
+<body class="nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Noah Fotenos E155 Portfolio</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../blog.html"> 
+<span class="menu-text">Blog</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../resources.html"> 
+<span class="menu-text">Resources</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../labs.html"> 
+<span class="menu-text">Labs</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#abstract" id="toc-abstract" class="nav-link active" data-scroll-target="#abstract">Abstract</a></li>
+  <li><a href="#proficiency-technical-information" id="toc-proficiency-technical-information" class="nav-link" data-scroll-target="#proficiency-technical-information">Proficiency &amp; Technical Information</a>
+  <ul class="collapse">
+  <li><a href="#system-overview" id="toc-system-overview" class="nav-link" data-scroll-target="#system-overview">System Overview</a></li>
+  <li><a href="#microcontroller-design-overview" id="toc-microcontroller-design-overview" class="nav-link" data-scroll-target="#microcontroller-design-overview">Microcontroller Design Overview</a></li>
+  <li><a href="#fpga-design-overview" id="toc-fpga-design-overview" class="nav-link" data-scroll-target="#fpga-design-overview">FPGA Design Overview</a>
+  <ul class="collapse">
+  <li><a href="#clocking-and-pll" id="toc-clocking-and-pll" class="nav-link" data-scroll-target="#clocking-and-pll">Clocking and PLL</a></li>
+  <li><a href="#vga-timing-generator" id="toc-vga-timing-generator" class="nav-link" data-scroll-target="#vga-timing-generator">VGA Timing Generator</a></li>
+  <li><a href="#tetris-game-logic" id="toc-tetris-game-logic" class="nav-link" data-scroll-target="#tetris-game-logic">Tetris Game Logic</a></li>
+  <li><a href="#board-representation-blitting" id="toc-board-representation-blitting" class="nav-link" data-scroll-target="#board-representation-blitting">Board Representation &amp; Blitting</a></li>
+  <li><a href="#input-handling-ps2-keyboard" id="toc-input-handling-ps2-keyboard" class="nav-link" data-scroll-target="#input-handling-ps2-keyboard">Input Handling (PS/2 Keyboard)</a></li>
+  <li><a href="#telemetry-and-debug-overlay" id="toc-telemetry-and-debug-overlay" class="nav-link" data-scroll-target="#telemetry-and-debug-overlay">Telemetry and Debug Overlay</a></li>
+  <li><a href="#schematics-and-block-diagram" id="toc-schematics-and-block-diagram" class="nav-link" data-scroll-target="#schematics-and-block-diagram">Schematics and Block Diagram</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#hardware-bill-of-materials" id="toc-hardware-bill-of-materials" class="nav-link" data-scroll-target="#hardware-bill-of-materials">Hardware &amp; Bill of Materials</a>
+  <ul class="collapse">
+  <li><a href="#bill-of-materials-bom" id="toc-bill-of-materials-bom" class="nav-link" data-scroll-target="#bill-of-materials-bom">Bill of Materials (BOM)</a></li>
+  <li><a href="#new-hardware" id="toc-new-hardware" class="nav-link" data-scroll-target="#new-hardware">New Hardware</a>
+  <ul class="collapse">
+  <li><a href="#rtl-hardware-modules" id="toc-rtl-hardware-modules" class="nav-link" data-scroll-target="#rtl-hardware-modules">RTL Hardware Modules</a></li>
+  <li><a href="#new-physical-hardware" id="toc-new-physical-hardware" class="nav-link" data-scroll-target="#new-physical-hardware">New Physical Hardware</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#results" id="toc-results" class="nav-link" data-scroll-target="#results">Results</a>
+  <ul class="collapse">
+  <li><a href="#functional-results" id="toc-functional-results" class="nav-link" data-scroll-target="#functional-results">Functional Results</a></li>
+  <li><a href="#quantitative-performance" id="toc-quantitative-performance" class="nav-link" data-scroll-target="#quantitative-performance">Quantitative Performance</a></li>
+  <li><a href="#design-tradeoffs-and-commentary" id="toc-design-tradeoffs-and-commentary" class="nav-link" data-scroll-target="#design-tradeoffs-and-commentary">Design Tradeoffs and Commentary</a></li>
+  </ul></li>
+  <li><a href="#code-repository" id="toc-code-repository" class="nav-link" data-scroll-target="#code-repository">Code Repository</a></li>
+  <li><a href="#team-acknowledgements" id="toc-team-acknowledgements" class="nav-link" data-scroll-target="#team-acknowledgements">Team &amp; Acknowledgements</a>
+  <ul class="collapse">
+  <li><a href="#team-members" id="toc-team-members" class="nav-link" data-scroll-target="#team-members">Team Members</a>
+  <ul class="collapse">
+  <li><a href="#james-kaden-cassidy" id="toc-james-kaden-cassidy" class="nav-link" data-scroll-target="#james-kaden-cassidy">James Kaden Cassidy</a></li>
+  <li><a href="#noah-fotenos" id="toc-noah-fotenos" class="nav-link" data-scroll-target="#noah-fotenos">Noah Fotenos</a></li>
+  </ul></li>
+  <li><a href="#acknowledgements" id="toc-acknowledgements" class="nav-link" data-scroll-target="#acknowledgements">Acknowledgements</a></li>
+  <li><a href="#ai-usage" id="toc-ai-usage" class="nav-link" data-scroll-target="#ai-usage">AI Usage</a></li>
+  </ul></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
+  <li><a href="#multimedia-documentation" id="toc-multimedia-documentation" class="nav-link" data-scroll-target="#multimedia-documentation">Multimedia Documentation</a>
+  <ul class="collapse">
+  <li><a href="#demo-video" id="toc-demo-video" class="nav-link" data-scroll-target="#demo-video">Demo Video</a></li>
+  <li><a href="#photos" id="toc-photos" class="nav-link" data-scroll-target="#photos">Photos</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Project Portfolio: Microcontroller–FPGA Tetris System</h1>
+<p class="subtitle lead">MicroPs_Project Hardware/Software Co-Design Portfolio</p>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="abstract" class="level1">
+<h1>Abstract</h1>
+<p>This project implements a complete <strong>Tetris game system</strong> using a dedicated microcontroller (MCU) and an FPGA working together over a well-defined hardware interface. The FPGA implements the <strong>real-time game logic and VGA video pipeline</strong>, while the MCU provides <strong>hardware random number generation</strong> and a control channel for the game. The final system drives a VGA display at 640×480@60 Hz, accepts input from a PS/2 keyboard, and renders a flicker-free Tetris game with proper line clears and loss detection.</p>
+<p>The main goals of this project were to:</p>
+<ul>
+<li>Demonstrate <strong>hardware/software co-design</strong> using a discrete MCU and FPGA.</li>
+<li>Implement a <strong>fully hardware Tetris pipeline</strong> on the FPGA with clean, parameterized RTL.</li>
+<li>Meet real-time <strong>display and responsiveness requirements</strong> (&gt;~20 Hz update, no visible flicker or ghosting).</li>
+<li>Extend the course reference designs with <strong>new hardware modules</strong> including on board MCU entropy-based randomization and FPGA PLL module.</li>
+</ul>
+<hr>
+</section>
+<section id="proficiency-technical-information" class="level1">
+<h1>Proficiency &amp; Technical Information</h1>
+<section id="system-overview" class="level2">
+<h2 class="anchored" data-anchor-id="system-overview">System Overview</h2>
+<p>At a high level, the system consists of:</p>
+<ul>
+<li>A <strong>microcontroller (MCU)</strong> responsible for:
+<ul>
+<li>Generating hardware random numbers used to select new Tetris pieces.</li>
+<li>Sending configuration and Keyboard commands over SPI.</li>
+</ul></li>
+<li>An <strong>FPGA</strong> responsible for:
+<ul>
+<li>VGA timing generation at 640×480@60 Hz using an on-chip PLL.</li>
+<li>Tetris game state (piece movement, rotation, collision detection, line clears, scoring).</li>
+<li>Telemetry overlay and debug visualization on top of the game board.</li>
+</ul></li>
+</ul>
+<p>Communication between the MCU and FPGA uses a custom <strong>SPI-based protocol</strong>, with the MCU as master. The FPGA exposes memory-mapped registers for commands, random-number injection.</p>
+<!-- If you want an inline block diagram, you can uncomment and point the image to your exported draw.io/KiCad diagram. -->
+<!--
+![System block diagram](images/microps-block-diagram.svg)
+-->
+</section>
+<section id="microcontroller-design-overview" class="level2">
+<h2 class="anchored" data-anchor-id="microcontroller-design-overview">Microcontroller Design Overview</h2>
+<p>The microcontroller acts as a <strong>control and randomness front-end</strong> for the FPGA:</p>
+<ul>
+<li><p><strong>Hardware Random Source</strong> The MCU uses its on-chip hardware RNG (or a pseudorandom generator seeded by a hardware source, depending on the specific device) to generate random values that select the next Tetris piece type and orientation. This prevents predictable piece sequences and keeps gameplay fair.</p></li>
+<li><p><strong>SPI Command/Status Channel</strong> The MCU is the <strong>SPI master</strong>, periodically transmitting:</p>
+<ul>
+<li>New random seeds or piece IDs.</li>
+<li>Receives and decodes USART PS/2 inputs from keyboard interrupts.</li>
+<li>Sends random seed and keyboard input over SPI to FPGA</li>
+</ul></li>
+</ul>
+<p>On the STM32L432KC we use the built-in true random number generator (RNG) peripheral instead of a software pseudo-random generator. This hardware block continuously produces 32-bit entropy samples derived from an analog noise source inside the chip. In our firmware, we enable and configure the RNG once at startup, then each time the game needs randomness we read a fresh 32-bit word, compress it down to a 3-bit value (g_random3), and pack that into the SPI word sent to the FPGA along with the keyboard state. The FPGA then uses those 3 random bits to drive Tetris gameplay randomness (for example, piece selection), while the MCU handles all interaction with the RNG hardware.</p>
+<p>The RNG peripheral is designed as a live entropy source suitable for building NIST-compliant deterministic random bit generators (DRBGs). In our project, we use it directly as a high-quality entropy source, which means each game session gets a genuinely non-repeatable sequence of pieces without us having to manage seeding or maintain a software RNG state.</p>
+<p>The SPI protocol is hardware-friendly: fixed-width frames with an opcode, optional payload, and parity/error-check bits. whenever the MCU sends a game update to the FPGA over SPI, it packs these three random bits into the same SPI word that carries the current keyboard state. On the FPGA, that 3-bit field is decoded and used to drive Tetris gameplay randomness (for example, piece selection or spawn behavior). Keeping the random logic on the MCU lets us change or debug the RNG algorithm entirely in C without touching the Verilog design, while still delivering compact, timing-friendly random signals to the FPGA each frame.</p>
+</section>
+<section id="fpga-design-overview" class="level2">
+<h2 class="anchored" data-anchor-id="fpga-design-overview">FPGA Design Overview</h2>
+<p>The FPGA implements all <strong>real-time, cycle-accurate tasks</strong> in the system:</p>
+<section id="clocking-and-pll" class="level3">
+<h3 class="anchored" data-anchor-id="clocking-and-pll">Clocking and PLL</h3>
+<p>An on-chip PLL generates the required pixel clock for 640×480@60 Hz VGA from the internal high-speed oscillator. VGA timing is synchronized to this clock domain. The rest of the system runs off the internal high-speed oscillator with gating from a slower game clock as well as move inputs (detailed later). A synchronization module is used to load a new frame from the gamestate logic when VGA and game logic have both declared they are ready for a new frame.</p>
+</section>
+<section id="vga-timing-generator" class="level3">
+<h3 class="anchored" data-anchor-id="vga-timing-generator">VGA Timing Generator</h3>
+<p>A parameterized VGA controller (e.g., <code>vga_pkg::VGA_640x480_60</code>) generates <code>hsync</code>, <code>vsync</code>, and <code>(x, y)</code> pixel coordinates for each active pixel. The controller:</p>
+<ul>
+<li>Encodes the full VGA timing (visible region, front/back porch, sync pulse).</li>
+<li>Can be reparameterized for other resolutions by changing a single configuration record.</li>
+</ul>
+</section>
+<section id="tetris-game-logic" class="level3">
+<h3 class="anchored" data-anchor-id="tetris-game-logic">Tetris Game Logic</h3>
+<p>The core game hardware includes:</p>
+<ul>
+<li><p><strong>Piece State Machine</strong> Tracks the active tetromino’s type, rotation state, and <code>(x, y)</code> position. It advances in response to:</p>
+<ul>
+<li>Gravity ticks (drop timer).</li>
+<li>Left/right and movement commands (triggered upon receiving SPI transaction).</li>
+<li>Rotation commands (triggered upon receiving SPI transaction).</li>
+</ul></li>
+<li><p><strong>Collision Detection</strong> Uses the current board representation and a series of shifted piece masks to detect collisions with:</p>
+<ul>
+<li>Walls and floor.</li>
+<li>Existing locked blocks.</li>
+</ul>
+<p>Moves and rotations are only committed if they result in a legal position.</p></li>
+<li><p><strong>Line-Clear Detection and Board Update</strong> Each frame, the hardware scans board rows to detect any that are fully occupied. When a full row is found:</p>
+<ul>
+<li>A <code>clearing_line</code> signal is asserted.</li>
+<li>The row is cleared, and rows above shift downward (one row per update in the current design).</li>
+<li>The score and line counters are updated accordingly.</li>
+</ul></li>
+<li><p><strong>Loss Condition and Reset</strong> If a new piece cannot be placed (because blocks already occupy its spawn region), the system enters a loss state. A reset command (from the MCU over SPI or from a dedicated key) clears the board and restarts the game.</p></li>
+</ul>
+</section>
+<section id="board-representation-blitting" class="level3">
+<h3 class="anchored" data-anchor-id="board-representation-blitting">Board Representation &amp; Blitting</h3>
+<p>The game board is stored as a 2D grid (e.g., 10 columns × 20 rows). Supporting modules include:</p>
+<ul>
+<li><code>piece_mask_generator</code>: computes a local 6×6 window around the active piece, providing convenient access for boundary checks and neighborhood-based logic.</li>
+<li><code>blit_piece</code>: overlays the active tetromino onto the fixed board state, computing board indices for each block in the 4×4 piece grid and combining them with the base state using simple bitwise operations.</li>
+</ul>
+<p>This separation between fixed board and active piece enables clean rendering and simplifies the line-clear logic.</p>
+</section>
+<section id="input-handling-ps2-keyboard" class="level3">
+<h3 class="anchored" data-anchor-id="input-handling-ps2-keyboard">Input Handling (PS/2 Keyboard)</h3>
+<p>A PS/2 decoder samples the keyboard clock and data lines, decodes scan codes, and maps them to game commands:</p>
+<ul>
+<li>Left / Right movement</li>
+<li>Rotation</li>
+</ul>
+<p>The decoder outputs debounced, single-cycle command pulses that the game state machine consumes, ensuring responsive but glitch-free behavior.</p>
+</section>
+<section id="telemetry-and-debug-overlay" class="level3">
+<h3 class="anchored" data-anchor-id="telemetry-and-debug-overlay">Telemetry and Debug Overlay</h3>
+<p>A <code>telemetry_module</code> renders text or numeric values into a reserved region of the screen. Internally the module converts these values into characters and overlays them after the game board is drawn, without affecting the board’s underlying representation.</p>
+<p>This hardware overlay is extremely helpful for debugging timing issues and verifying state transitions.</p>
+</section>
+<section id="schematics-and-block-diagram" class="level3">
+<h3 class="anchored" data-anchor-id="schematics-and-block-diagram">Schematics and Block Diagram</h3>
+<ul>
+<li>FPGA dev board power and IO pin assignments.</li>
+<li>MCU dev board connections.</li>
+<li>SPI, PS/2, and VGA connectors with signal names and reference designators.</li>
+<li>Any custom IO or adapter boards used.</li>
+</ul>
+<p><img src="images/schematic.png" class="img-fluid" alt="System schematic"> <img src="images/Blockdiagram.svg" class="img-fluid" alt="FPGA top-level block diagram"> –&gt;</p>
+<hr>
+</section>
+</section>
+</section>
+<section id="hardware-bill-of-materials" class="level1">
+<h1>Hardware &amp; Bill of Materials</h1>
+<section id="bill-of-materials-bom" class="level2">
+<h2 class="anchored" data-anchor-id="bill-of-materials-bom">Bill of Materials (BOM)</h2>
+<p>The table below lists the main hardware components used in the MicroPs system. Fill in the rows with your exact parts, quantities, and prices.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 18%">
+<col style="width: 53%">
+<col style="width: 6%">
+<col style="width: 21%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Item / RefDes</th>
+<th>Description</th>
+<th>Qty</th>
+<th>Unit Price (USD)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>U1</td>
+<td>FPGA development board</td>
+<td>1</td>
+<td>-</td>
+</tr>
+<tr class="even">
+<td>U2</td>
+<td>Microcontroller development board</td>
+<td>1</td>
+<td>-</td>
+</tr>
+<tr class="odd">
+<td>J1</td>
+<td>VGA connector (HD-15)</td>
+<td>1</td>
+<td>14.26</td>
+</tr>
+<tr class="even">
+<td>J2</td>
+<td>PS/2 connector</td>
+<td>1</td>
+<td>9.36</td>
+</tr>
+<tr class="odd">
+<td>-</td>
+<td>Ps2 Keyboard</td>
+<td>1</td>
+<td>(Stockroom)</td>
+</tr>
+<tr class="even">
+<td>-</td>
+<td>VGA display</td>
+<td>1</td>
+<td>(Stockroom)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Total project cost: 23.62</strong></p>
+</section>
+<section id="new-hardware" class="level2">
+<h2 class="anchored" data-anchor-id="new-hardware">New Hardware</h2>
+<section id="rtl-hardware-modules" class="level3">
+<h3 class="anchored" data-anchor-id="rtl-hardware-modules">RTL Hardware Modules</h3>
+<p>In addition to the material covered in class, the project includes several <strong>new hardware modules</strong>:</p>
+<ul>
+<li><strong>Custom SPI Core (<code>spi</code>)</strong>
+<ul>
+<li>Implements an SPI slave interface tuned to the MCU’s clock rate and protocol.</li>
+<li>Includes parity or simple error checking before committing incoming data to registers.</li>
+<li>Exposes clean status and data-valid flags to the game logic.</li>
+</ul></li>
+<li><strong>Piece Mask Generator (<code>piece_mask_generator</code>)</strong>
+<ul>
+<li>Generates a 6×6 neighborhood window around the active piece, clamping out-of-bounds accesses.</li>
+<li>Simplifies collision and boundary logic while remaining synthesizable and efficient.</li>
+</ul></li>
+<li><strong>Blit Piece (<code>blit_piece</code>)</strong>
+<ul>
+<li>Computes the board indices for each block in the 4×4 tetromino grid.</li>
+<li>Overlays the active piece onto the static board state using logical operations, producing the rendered board for VGA.</li>
+</ul></li>
+<li><strong>Line Clear Logic</strong>
+<ul>
+<li>Detects full lines using row-wise reductions and asserts <code>clearing_line</code>.</li>
+<li>Shifts rows above a cleared row downward, one row per update cycle in the project’s implementation.</li>
+<li>Designed to be efficient and friendly to synthesis (using enables instead of large mux trees).</li>
+</ul></li>
+<li><strong>Telemetry Overlay (<code>telemetry_module</code>)</strong>
+<ul>
+<li>Parameterized in number of signals and bit-width.</li>
+<li>Renders debug information directly into the frame, making it easy to observe internal state without a logic analyzer.</li>
+</ul></li>
+</ul>
+</section>
+<section id="new-physical-hardware" class="level3">
+<h3 class="anchored" data-anchor-id="new-physical-hardware">New Physical Hardware</h3>
+<p>On the FPGA side, we extended the baseline course design by integrating the on-chip low-speed oscillator and a hardware PLL to generate a stable pixel clock for VGA output. This required configuring new clocking resources, managing clock domains, and verifying that the timing met VGA 640×480 @ 60 Hz requirements. We then routed these signals through custom VGA timing and pixel-generation modules to drive an external VGA display, which introduced a completely new output format compared to the standard lab exercises.</p>
+<p>On the microcontroller side, we implemented two major features beyond the core course content: an internal hardware-based random source and a PS/2 keyboard interface. The internal random generator is used to provide non-deterministic, hardware-driven piece generation for the Tetris game, while the PS/2 interface allowed us to accept real-time player input using a standard PS/2 keyboard. Both of these features required new peripheral configuration, custom protocols, and additional firmware modules that go beyond the standard course material.</p>
+<hr>
+</section>
+</section>
+</section>
+<section id="results" class="level1">
+<h1>Results</h1>
+<section id="functional-results" class="level2">
+<h2 class="anchored" data-anchor-id="functional-results">Functional Results</h2>
+<p>The system achieves the core functional requirements of a Tetris-style game:</p>
+<ul>
+<li><p><strong>Hardware random from MCU</strong> New pieces are chosen based on MCU-generated randomness, avoiding obvious patterns.</p></li>
+<li><p><strong>Hardware PLL from FPGA</strong> The VGA pixel clock is generated by the FPGA’s PLL, producing a stable 640×480@60 Hz signal.</p></li>
+<li><p><strong>Display updates &gt; 20 Hz</strong> The display runs at 60 Hz, so the visible game update rate is comfortably above the 20 Hz requirement.</p></li>
+<li><p><strong>No visible flicker or ghosting</strong> The design uses a consistent board representation and clean overlay of the active piece, so the display does not flicker or ghost between frames.</p></li>
+<li><p><strong>Correct block behavior</strong></p>
+<ul>
+<li>Blocks clear when a line is fully filled.</li>
+<li>Lines above a cleared line shift downward.</li>
+<li>Blocks lower at a standard, controllable rate.</li>
+<li>New random blocks appear once the previous block settles.</li>
+<li>Game boundaries stop pieces from moving outside the playfield.</li>
+</ul></li>
+<li><p><strong>Player input and control</strong></p>
+<ul>
+<li>The player can move and rotate pieces using a PS/2 keyboard.</li>
+<li>Commands are decoded and applied on the appropriate clock edges.</li>
+<li>The game resets correctly when the loss condition is triggered or when reset is commanded.</li>
+</ul></li>
+</ul>
+</section>
+<section id="quantitative-performance" class="level2">
+<h2 class="anchored" data-anchor-id="quantitative-performance">Quantitative Performance</h2>
+<p>You can fill in your actual numbers here once measured:</p>
+<ul>
+<li><strong>Frame rate:</strong> 60 Hz VGA refresh (target).</li>
+<li><strong>Approximate input-to-display latency:</strong> on the order of one frame period (dominated by the display).</li>
+<li><strong>FPGA resource utilization:</strong>
+<ul>
+<li>LUTs: 3861</li>
+<li>LUT Ripple: 74</li>
+<li>PFU Registers: 479</li>
+<li>IO Registers: 2</li>
+<li>IO Buffers: 11</li>
+</ul></li>
+<li><strong>Clock frequency of main game logic:</strong></li>
+</ul>
+<p>HSOSC used as the global game logic flop clock at 48Mhz. Timing shows a slack of 5.809ns.</p>
+<p>These metrics demonstrate that the design has comfortable timing margins, meets its refresh requirements, and fits within the available FPGA resources.</p>
+</section>
+<section id="design-tradeoffs-and-commentary" class="level2">
+<h2 class="anchored" data-anchor-id="design-tradeoffs-and-commentary">Design Tradeoffs and Commentary</h2>
+<p>Several design decisions improved performance and clarity:</p>
+<ul>
+<li><strong>Single-clock-domain design with enables</strong> simplifies timing closure and avoids metastability issues.</li>
+<li><strong>Parameterized modules</strong> (e.g., board dimensions, number of telemetry signals, VGA parameters) make the design reusable for other games or resolutions.</li>
+<li><strong>Hardware-based line clear and score tracking</strong> eliminates the need for a software game loop, keeping the MCU simple and focused on randomness and control.</li>
+</ul>
+<hr>
+</section>
+</section>
+<section id="code-repository" class="level1">
+<h1>Code Repository</h1>
+<p>All project code (software and HDL) is hosted on GitHub:</p>
+<ul>
+<li><strong>MicroPs_Project Repository:</strong> <a href="https://github.com/jacassidy/MicroPs_Project" class="uri">https://github.com/jacassidy/MicroPs_Project</a></li>
+</ul>
+<p>The repository contains:</p>
+<ul>
+<li>FPGA RTL (SystemVerilog or Verilog modules for VGA, Tetris logic, SPI, PS/2, telemetry, etc.).</li>
+<li>MCU firmware source code and any supporting scripts.</li>
+<li>Simulation/testbench files as applicable.</li>
+<li>Project build files (e.g., synthesis, place-and-route, and programming scripts).</li>
+<li>A <code>README.md</code> describing the main elements of the project and where they are found.</li>
+</ul>
+<p>Throughout the code, comments document module intent, interfaces, and non-obvious implementation details to aid future readers and maintainers.</p>
+<hr>
+</section>
+<section id="team-acknowledgements" class="level1">
+<h1>Team &amp; Acknowledgements</h1>
+<section id="team-members" class="level2">
+<h2 class="anchored" data-anchor-id="team-members">Team Members</h2>
+<section id="james-kaden-cassidy" class="level3">
+<h3 class="anchored" data-anchor-id="james-kaden-cassidy">James Kaden Cassidy</h3>
+<p><strong>Applied Mathematics in Computation</strong>, Harvey Mudd College <strong>Clay–Wolken Fellow, VLSI Lab</strong></p>
+<p>Kaden’s work centers on advancing open hardware. He is currently developing certification tests and hardware implementations of the <strong>RISC-V Vector Extension</strong>, contributing to the next generation of RISC-V processors.</p>
+<p>Outside of research, he is an athlete on the <strong>CMS Track &amp; Field</strong> team, competing in the hammer, shot put, and discus.</p>
+<p>Kaden is passionate about <strong>hardware/software co-design</strong> and seeks opportunities combining processor architecture, systems engineering, and algorithmic performance.</p>
+<p>🌐 <a href="https://www.kadencassidy.com/" class="uri">https://www.kadencassidy.com/</a></p>
+</section>
+<section id="noah-fotenos" class="level3">
+<h3 class="anchored" data-anchor-id="noah-fotenos">Noah Fotenos</h3>
+<p><strong>Engineering</strong>, Harvey Mudd College <strong>Clay–Wolken Fellow, VLSI Lab</strong></p>
+<p>Noah’s work centers on advancing open hardware. He is currently developing certification methodologies and verification test suite for the <strong>RISC-V Privilege Extensions</strong>, contributing to the next generation of RISC-V processors.</p>
+<p>Outside of research, he is an athlete on the <strong>Claremont Cougars</strong> club Lacrosse team. A Residential life Mentor for new students. A “Muchachief” leader for the Department of Student Life for oncampus events. And Grutor for E85 Computer Engineering.</p>
+</section>
+</section>
+<section id="acknowledgements" class="level2">
+<h2 class="anchored" data-anchor-id="acknowledgements">Acknowledgements</h2>
+<p>We gratefully acknowledge:</p>
+<ul>
+<li><strong>Course instructor and staff</strong>, for providing reference designs, lab infrastructure, and guidance on the MCU and FPGA toolchains.</li>
+<li><strong>Teaching assistants and classmates</strong>, whose feedback and debugging assistance were invaluable, especially for clocking issues, PS/2 decoding, and synthesis quirks.</li>
+<li><strong>Open-source communities</strong>, whose documentation and example projects informed our VGA and PS2 interface(Ben Eater).</li>
+</ul>
+</section>
+<section id="ai-usage" class="level2">
+<h2 class="anchored" data-anchor-id="ai-usage">AI Usage</h2>
+<p>Artificial intelligence tools were used throughout the development of this project to support both hardware and software design tasks. AI was especially helpful during the implementation of the new PLL hardware module on the FPGA, where it accelerated debugging and clarified vendor-specific configuration details. It was also used extensively when writing and refining Verilog modules and their accompanying testbenches, as well as during the final cleanup of the microcontroller firmware.</p>
+<p>While AI was generally accurate when provided with complete and precise context, we found it most effective as a correctness amplifier—helping verify logic, catch oversight errors, and suggest clearer structural patterns. As the project deadline approached and fatigue increased, we relied on AI to cross-check our reasoning and ensure that we were not introducing avoidable mistakes. Ultimately, AI served as a supplemental tool that improved workflow efficiency without replacing our judgment or engineering responsibilities.</p>
+<hr>
+</section>
+</section>
+<section id="references" class="level1">
+<h1>References</h1>
+<p>References are presented in a consistent numbered format.</p>
+<ol type="1">
+<li><p><strong>Tetris Overview</strong> “Tetris.” <em>Wikipedia, The Free Encyclopedia.</em> <a href="https://en.wikipedia.org/wiki/Tetris" class="uri">https://en.wikipedia.org/wiki/Tetris</a></p></li>
+<li><p><strong>VGA Timing Reference</strong> “640×480 @ 60 Hz VGA Signal Timing.” <em>TinyVGA.</em> <a href="https://tinyvga.com/vga-timing/640x480@60Hz" class="uri">https://tinyvga.com/vga-timing/640x480@60Hz</a></p></li>
+<li><p><strong>FPGA Family Datasheet</strong> Lattice Semiconductor. <em>iCE40 UltraPlus Family Data Sheet.</em> <a href="https://hmc-e155.github.io/assets/doc/FPGA-DS-02008-2-0-iCE40-UltraPlus-Family-Data-Sheet.pdf" class="uri">https://hmc-e155.github.io/assets/doc/FPGA-DS-02008-2-0-iCE40-UltraPlus-Family-Data-Sheet.pdf</a></p></li>
+<li><p><strong>Toolchain Documentation</strong> Lattice Semiconductor. <em>Radiant Software User Guide</em> and application notes for the chosen FPGA.</p></li>
+<li><p><strong>PS/2 Protocol Description</strong> Adam Chapweske. “The PS/2 Mouse/Keyboard Protocol.” <a href="https://computer-engineering.org/ps2protocol/" class="uri">https://computer-engineering.org/ps2protocol/</a></p></li>
+<li><p><strong>Course Materials</strong> Internal course notes and lab handouts for Microprocessors / Embedded Systems (MicroPs), including MCU–FPGA communication, VGA controller design, and PS/2 interface labs. <a href="https://hmc-e155.github.io/" class="uri">https://hmc-e155.github.io/</a></p></li>
+<li><p><strong>Related FPGA Tetris Projects</strong> Various FPGA Tetris implementations used for conceptual inspiration and comparison of architectures.</p></li>
+<li><p>Ben Eater. <em>How does a PS/2 keyboard interface work?</em> YouTube, 2019. <a href="https://www.youtube.com/watch?v=7aXbh9VUB3U">https://www.youtube.com/watch?v=7aXbh9VUB3U</a></p></li>
+<li><p>Ben Eater. <em>Building logic for VGA timing signals (video card project).</em> YouTube, 2015. <a href="https://www.youtube.com/watch?v=l7rce6IQDWs">https://www.youtube.com/watch?v=l7rce6IQDWs</a></p></li>
+</ol>
+<hr>
+</section>
+<section id="multimedia-documentation" class="level1">
+<h1>Multimedia Documentation</h1>
+<section id="demo-video" class="level2">
+<h2 class="anchored" data-anchor-id="demo-video">Demo Video</h2>
+<p>A short video demonstrates the system running Tetris on the VGA display, showing:</p>
+<ul>
+<li>Stable 640×480@60 Hz video.</li>
+<li>Piece motion, rotation, and line clears.</li>
+<li>Hardware-generated random pieces and responsive keyboard control.</li>
+</ul>
+<!--
+When you have a hosted video (e.g., YouTube), you can embed it like this:
+
+<iframe width="560" height="315"
+        src="https://www.youtube.com/embed/VIDEO_ID"
+        title="MicroPs FPGA Tetris Demo"
+        frameborder="0"
+        allowfullscreen>
+</iframe>
+-->
+</section>
+<section id="photos" class="level2">
+<h2 class="anchored" data-anchor-id="photos">Photos</h2>
+<p>Photos of the final design help document the hardware:</p>
+<ul>
+<li>FPGA board connected to the VGA monitor.</li>
+<li>MCU board with SPI connection to the FPGA.</li>
+<li>Any custom PCBs or wiring harnesses.</li>
+<li>Close-up of the VGA output showing the Tetris game.</li>
+</ul>
+<!--
+Uncomment and point these to your actual images when ready.
+
+![FPGA board and VGA monitor](images/fpga-vga-setup.jpg)
+![MCU and FPGA interconnect](images/mcu-fpga-interconnect.jpg)
+![Final system overview](images/microps-final-setup.jpg)
+-->
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
+        }
+        return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/Noah-Fotenos\.github\.io\/E155\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
